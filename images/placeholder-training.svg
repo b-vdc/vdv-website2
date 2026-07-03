@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Placeholder: replace with a photo of Elisa giving a training or workshop">
+  <!-- PLACEHOLDER IMAGE — replace with: photo of Elisa giving a training/workshop to a group (approx. 4:3, e.g. 1200x900) -->
+  <rect width="1200" height="900" fill="#EFF2FF"/>
+
+  <!-- stylised training scene: presenter at a board with an audience -->
+  <g stroke="#6B004A" stroke-width="10" fill="none" stroke-linecap="round">
+    <!-- board -->
+    <rect x="120" y="130" width="520" height="330" rx="18"/>
+    <line x1="180" y1="220" x2="520" y2="220"/>
+    <line x1="180" y1="290" x2="460" y2="290"/>
+    <line x1="180" y1="360" x2="500" y2="360"/>
+    <!-- presenter -->
+    <circle cx="760" cy="330" r="60"/>
+    <path d="M660 640 C660 480 720 420 760 420 C800 420 860 480 860 640"/>
+    <path d="M730 470 L640 400"/>
+    <!-- audience -->
+    <circle cx="330" cy="620" r="44"/>
+    <path d="M250 790 C250 690 300 670 330 670 C360 670 410 690 410 790"/>
+    <circle cx="520" cy="640" r="44"/>
+    <path d="M440 800 C440 710 490 690 520 690 C550 690 600 710 600 800"/>
+    <circle cx="1000" cy="620" r="44"/>
+    <path d="M920 790 C920 690 970 670 1000 670 C1030 670 1080 690 1080 790"/>
+  </g>
+  <!-- speech bubble accent (one square corner) -->
+  <path d="M950 150 h90 a90 90 0 0 1 90 90 v0 a90 90 0 0 1 -90 90 h-0 a90 90 0 0 1 -90 -90 v-90 z" fill="#ED5221"/>
+
+  <!-- what should go here -->
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="600" y="855" font-size="36" font-weight="bold" fill="#6B004A">Replace with: photo of Elisa giving a training or workshop</text>
+  </g>
+
+  <!-- watermark -->
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#6B004A" opacity="0.14" text-anchor="middle">
+    <text x="600" y="200" font-size="56" transform="rotate(-25 600 200)">PLACEHOLDER · PLACEHOLDER · PLACEHOLDER</text>
+    <text x="600" y="720" font-size="56" transform="rotate(-25 600 720)">PLACEHOLDER · PLACEHOLDER · PLACEHOLDER</text>
+  </g>
+  <text x="600" y="470" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="100" fill="#6B004A" opacity="0.30" text-anchor="middle" transform="rotate(-25 600 470)">PLACEHOLDER</text>
+</svg>
