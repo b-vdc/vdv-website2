@@ -76,6 +76,11 @@ html { scroll-behavior: smooth; }
 /* Anchored sections land below the sticky header */
 [id] { scroll-margin-top: 90px; }
 
+/* Brand-tinted mobile tap highlight (Chrome/Safari on Android/iOS) instead of the default blue-gray */
+a, button {
+  -webkit-tap-highlight-color: rgba(237, 82, 33, 0.25);
+}
+
 body {
   margin: 0;
   background: var(--vdv-offwhite); /* never pure white */
