@@ -228,16 +228,80 @@ section { padding: 72px 0; }
 .center { text-align: center; }
 .center.section-head { margin-left: auto; margin-right: auto; }
 
-/* ---- Hero ---- */
-.hero { position: relative; overflow: hidden; padding: 96px 0 110px; }
-.hero-inner { position: relative; z-index: 2; max-width: 760px; }
-.hero h1 { margin-bottom: 0.35em; }
+/* ---- Hero: the conversation ----
+   The signature speech bubble used literally — a client question and
+   Elisa's answer, the product in four messages. */
+.hero { position: relative; overflow: hidden; padding: 72px 0 88px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 72px;
+  align-items: center;
+}
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--vdv-orange);
+  letter-spacing: 0.02em;
+  margin: 0 0 1.6em;
+}
+.hero-kicker::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: var(--vdv-orange);
+  border-radius: 7px 7px 7px 0;
+}
+.hero h1 { margin-bottom: 0.4em; }
 .hero .lead {
   font-size: 1.2rem;
-  max-width: 560px;
+  max-width: 520px;
   margin-bottom: 1.8em;
 }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Chat thread: pastel bubbles carry Eggplant text, orange carries Off-White (§4) */
+.hero-chat { display: flex; flex-direction: column; gap: 12px; }
+.chat-who {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vdv-eggplant);
+  margin: 0 0 -2px;
+}
+.chat-who-elisa { text-align: right; margin-top: 10px; }
+.chat-msg {
+  max-width: 85%;
+  padding: 16px 22px;
+  box-shadow: var(--shadow-soft);
+}
+.chat-msg p { margin: 0; font-size: 1.02rem; line-height: 1.5; }
+.from-you {
+  align-self: flex-start;
+  background: var(--vdv-periwinkle);
+  border-radius: 24px 24px 24px 0;
+}
+.from-you p { color: var(--vdv-eggplant); font-weight: 500; }
+.from-elisa {
+  align-self: flex-end;
+  background: var(--vdv-orange);
+  border-radius: 24px 24px 0 24px;
+}
+.from-elisa p { color: var(--vdv-offwhite); font-weight: 500; }
+
+/* Messages arrive one by one */
+.chat-who, .chat-msg { animation: msg-in 0.5s ease both; }
+.hero-chat > *:nth-child(1) { animation-delay: 0.5s; }
+.hero-chat > *:nth-child(2) { animation-delay: 0.65s; }
+.hero-chat > *:nth-child(3) { animation-delay: 1.5s; }
+.hero-chat > *:nth-child(4) { animation-delay: 1.65s; }
+.hero-chat > *:nth-child(5) { animation-delay: 2.6s; }
+.hero-chat > *:nth-child(6) { animation-delay: 3.4s; }
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
 
 /* Decorative speech bubbles: 3 corners at 50% of shortest side, 1 square (brandbook §6) */
 .bubble-deco { position: absolute; z-index: 1; pointer-events: none; }
@@ -245,21 +309,6 @@ section { padding: 72px 0; }
   width: 180px; height: 180px; background: var(--vdv-orange);
   border-radius: 90px 90px 90px 0;
   top: 48px; right: 8%;
-}
-.bd-2 { /* spring elongated, square corner top-right */
-  width: 120px; height: 240px; background: var(--vdv-spring);
-  border-radius: 60px 0 60px 60px;
-  top: 190px; right: 22%;
-}
-.bd-3 { /* periwinkle small, square corner top-left */
-  width: 90px; height: 90px; background: var(--vdv-periwinkle);
-  border-radius: 0 45px 45px 45px;
-  bottom: 40px; right: 12%;
-}
-.bd-4 { /* eggplant-80 tiny, square corner bottom-right */
-  width: 56px; height: 56px; background: var(--vdv-eggplant-80);
-  border-radius: 28px 28px 0 28px;
-  top: 120px; right: 34%;
 }
 
 /* Page hero (subpages): shorter, with small deco */
@@ -458,9 +507,10 @@ figcaption {
 .reveal-init.in-view { opacity: 1; transform: none; }
 
 /* Hero load-in stagger */
-.hero-inner > * { animation: rise-in 0.7s ease both; }
-.hero-inner > *:nth-child(2) { animation-delay: 0.12s; }
-.hero-inner > *:nth-child(3) { animation-delay: 0.24s; }
+.hero-copy > * { animation: rise-in 0.7s ease both; }
+.hero-copy > *:nth-child(2) { animation-delay: 0.1s; }
+.hero-copy > *:nth-child(3) { animation-delay: 0.2s; }
+.hero-copy > *:nth-child(4) { animation-delay: 0.3s; }
 @keyframes rise-in {
   from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: none; }
@@ -468,18 +518,19 @@ figcaption {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal-init, .hero-inner > * { animation: none; transition: none; opacity: 1; transform: none; }
+  .reveal-init, .hero-copy > *, .chat-who, .chat-msg { animation: none; transition: none; opacity: 1; transform: none; }
 }
 
 /* ---- Responsive ---- */
-/* Below ~1100px the hero text column reaches into the bubble zone:
-   keep one bubble peeking from the top corner, drop the rest. */
+/* Subpage heroes below ~1100px: keep the bubble peeking from the top corner. */
 @media (max-width: 1100px) {
   .bd-1 { width: 150px; height: 150px; border-radius: 75px 75px 75px 0; top: -50px; right: -40px; }
-  .bd-2, .bd-3, .bd-4 { display: none; }
 }
 
 @media (max-width: 900px) {
+  .hero { padding: 48px 0 72px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-chat { max-width: 480px; }
   .split, .split.reverse { grid-template-columns: 1fr; gap: 32px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .cta-banner { padding: 56px 32px; border-radius: 72px 72px 72px 0; }
@@ -506,7 +557,9 @@ figcaption {
   .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .hero { padding: 64px 0 80px; }
+  .hero { padding: 36px 0 64px; }
+  .hero .lead { font-size: 1.1rem; }
+  .chat-msg { max-width: 92%; padding: 14px 18px; }
   section { padding: 56px 0; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }
