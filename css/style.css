@@ -228,16 +228,70 @@ section { padding: 72px 0; }
 .center { text-align: center; }
 .center.section-head { margin-left: auto; margin-right: auto; }
 
-/* ---- Hero ---- */
-.hero { position: relative; overflow: hidden; padding: 96px 0 110px; }
-.hero-inner { position: relative; z-index: 2; max-width: 760px; }
+/* ---- Hero: portrait in a speech bubble ---- */
+.hero { position: relative; overflow: hidden; padding: 56px 0 84px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--vdv-orange);
+  letter-spacing: 0.02em;
+  margin: 0 0 1.6em;
+}
+.hero-kicker::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: var(--vdv-orange);
+  border-radius: 7px 7px 7px 0;
+}
 .hero h1 { margin-bottom: 0.35em; }
 .hero .lead {
   font-size: 1.2rem;
-  max-width: 560px;
+  max-width: 540px;
   margin-bottom: 1.8em;
 }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Portrait masked as the signature bubble: radius caps at 50% of the
+   shortest side, one corner square (brandbook §6) */
+.hero-media { position: relative; }
+.hero-portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 16%;
+  border-radius: 999px 999px 999px 0;
+  box-shadow: var(--shadow-soft);
+}
+/* The kind of question that lands in Elisa's inbox every week */
+.hero-ask {
+  position: absolute;
+  left: -40px;
+  bottom: 48px;
+  max-width: 240px;
+  margin: 0;
+  background: var(--vdv-periwinkle);
+  color: var(--vdv-eggplant);
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  padding: 16px 22px;
+  border-radius: 24px 24px 0 24px;
+  box-shadow: var(--shadow-soft);
+  animation: ask-float 6s ease-in-out infinite;
+}
+@keyframes ask-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
 /* Decorative speech bubbles: 3 corners at 50% of shortest side, 1 square (brandbook §6) */
 .bubble-deco { position: absolute; z-index: 1; pointer-events: none; }
@@ -245,21 +299,6 @@ section { padding: 72px 0; }
   width: 180px; height: 180px; background: var(--vdv-orange);
   border-radius: 90px 90px 90px 0;
   top: 48px; right: 8%;
-}
-.bd-2 { /* spring elongated, square corner top-right */
-  width: 120px; height: 240px; background: var(--vdv-spring);
-  border-radius: 60px 0 60px 60px;
-  top: 190px; right: 22%;
-}
-.bd-3 { /* periwinkle small, square corner top-left */
-  width: 90px; height: 90px; background: var(--vdv-periwinkle);
-  border-radius: 0 45px 45px 45px;
-  bottom: 40px; right: 12%;
-}
-.bd-4 { /* eggplant-80 tiny, square corner bottom-right */
-  width: 56px; height: 56px; background: var(--vdv-eggplant-80);
-  border-radius: 28px 28px 0 28px;
-  top: 120px; right: 34%;
 }
 
 /* Page hero (subpages): shorter, with small deco */
@@ -458,9 +497,11 @@ figcaption {
 .reveal-init.in-view { opacity: 1; transform: none; }
 
 /* Hero load-in stagger */
-.hero-inner > * { animation: rise-in 0.7s ease both; }
-.hero-inner > *:nth-child(2) { animation-delay: 0.12s; }
-.hero-inner > *:nth-child(3) { animation-delay: 0.24s; }
+.hero-copy > * { animation: rise-in 0.7s ease both; }
+.hero-copy > *:nth-child(2) { animation-delay: 0.1s; }
+.hero-copy > *:nth-child(3) { animation-delay: 0.2s; }
+.hero-copy > *:nth-child(4) { animation-delay: 0.3s; }
+.hero-media { animation: rise-in 0.8s ease 0.25s both; }
 @keyframes rise-in {
   from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: none; }
@@ -468,18 +509,21 @@ figcaption {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal-init, .hero-inner > * { animation: none; transition: none; opacity: 1; transform: none; }
+  .reveal-init, .hero-copy > *, .hero-media, .hero-ask { animation: none; transition: none; opacity: 1; transform: none; }
 }
 
 /* ---- Responsive ---- */
-/* Below ~1100px the hero text column reaches into the bubble zone:
-   keep one bubble peeking from the top corner, drop the rest. */
+/* Subpage heroes below ~1100px: keep the bubble peeking from the top corner. */
 @media (max-width: 1100px) {
   .bd-1 { width: 150px; height: 150px; border-radius: 75px 75px 75px 0; top: -50px; right: -40px; }
-  .bd-2, .bd-3, .bd-4 { display: none; }
 }
 
 @media (max-width: 900px) {
+  .hero { padding: 40px 0 72px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-media { max-width: 360px; margin: 0 auto; width: 100%; }
+  .hero-portrait img { aspect-ratio: 1 / 1; object-position: 50% 22%; }
+  .hero-ask { left: -12px; bottom: 28px; }
   .split, .split.reverse { grid-template-columns: 1fr; gap: 32px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .cta-banner { padding: 56px 32px; border-radius: 72px 72px 72px 0; }
@@ -506,7 +550,8 @@ figcaption {
   .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .hero { padding: 64px 0 80px; }
+  .hero { padding: 32px 0 64px; }
+  .hero .lead { font-size: 1.1rem; }
   section { padding: 56px 0; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }
