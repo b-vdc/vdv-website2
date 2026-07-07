@@ -344,6 +344,7 @@ section { padding: 72px 0; }
   gap: 24px;
 }
 .card {
+  position: relative;
   background: var(--vdv-offwhite);
   border: 1.5px solid var(--vdv-eggplant-80);
   border-radius: var(--radius-card) var(--radius-card) var(--radius-card) 0;
@@ -351,6 +352,19 @@ section { padding: 72px 0; }
   box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
+}
+.card-badge {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  background: var(--vdv-orange);
+  color: var(--vdv-offwhite);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px 999px 999px 0;
 }
 .card:nth-child(2) { border-radius: var(--radius-card) var(--radius-card) 0 var(--radius-card); }
 .card:nth-child(3) { border-radius: 0 var(--radius-card) var(--radius-card) var(--radius-card); }
