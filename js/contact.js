@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(sendMessage)
       .then(function (result) {
         if (result && result.ok) {
-          setStatus("Thanks, your message is on its way. I read and answer everything myself.", "success");
+          setStatus("Thanks, your message is on its way.", "success");
           form.reset();
         } else {
           setStatus(
