@@ -44,13 +44,18 @@ then open http://localhost:8123. Without a PHP server running, the contact form'
 
 To exercise the contact form locally:
 
-1. `composer install` (fetches PHPMailer into `vendor/`).
-2. `cp config.example.php config.php` and fill in real SMTP credentials, or set
+1. `cp config.example.php config.php` and fill in real SMTP credentials, or set
    `'recaptcha_disable' => true` plus test SMTP details to try it without live reCAPTCHA keys.
-3. `php -S localhost:8123` (serves both the static files and `contact.php` together).
+2. `php -S localhost:8123` (serves both the static files and `contact.php` together).
+
+PHPMailer is committed under `vendor/`, so no `composer install` step is needed to run the form.
 
 ## Deploying
 
-After pulling changes on the server: run `composer install` (PHPMailer isn't committed to the
-repo) and make sure `config.php` exists there with live SMTP + reCAPTCHA credentials — it is
-gitignored and must be created directly on the server, not deployed from a branch.
+The contact form's PHP dependency (PHPMailer) is vendored into `vendor/` and committed, so a
+deploy is just getting the files onto the server — no `composer install` step. The only thing that
+must live on the server outside git is `config.php` (live SMTP + reCAPTCHA secrets); it is
+gitignored and is created/kept directly on the server, not deployed from a branch.
+
+To update PHPMailer later, run `composer update phpmailer/phpmailer` in a checkout, then commit the
+changed `vendor/` and `composer.lock`.
