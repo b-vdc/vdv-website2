@@ -36,7 +36,7 @@ include __DIR__ . "/includes/head.php";
               <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/>
             </svg>
             <h3>Brands &amp; businesses</h3>
-            <p>For marketing, legal and social media teams that work with creators, run campaigns and publish content every day, and want to protect budget, content and reputation.</p>
+            <p>For marketing, legal and social media teams that work with creators and run campaigns, and want to protect budget, content and reputation.</p>
           </article>
           <article class="card card-periwinkle">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
