@@ -1,36 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Van der Volpi – Your brand online. Legal.</title>
-  <meta name="description" content="Legal training and hands-on legal support for brands, agencies and creators. Clear answers on content, IP, contracts and collaborations.">
-  <link rel="icon" type="image/png" href="https://vandervolpi.com/assets/logo/VDV_Favicon2_oranje_RGB.png">
-  <link rel="stylesheet" href="css/style.css">
-  <meta property="og:title" content="Van der Volpi – Your brand online. Legal.">
-  <meta property="og:description" content="Legal training and hands-on legal support for brands, agencies and creators.">
-  <meta property="og:image" content="https://vandervolpi.com/assets/logo/VDV_Logo1_oranje_RGB.png">
-  <meta property="og:type" content="website">
-</head>
-<body>
+<?php
+$title = "Van der Volpi – Your brand online. Legal.";
+$description = "Legal training and hands-on legal support for brands, agencies and creators. Clear answers on content, IP, contracts and collaborations.";
+$ogDescription = "Legal training and hands-on legal support for brands, agencies and creators.";
+$active = "Home";
+include __DIR__ . "/includes/head.php";
+?>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Van der Volpi – home">
-        <img src="https://vandervolpi.com/assets/logo/VDV_Logo2_oranje_RGB.png" alt="Van der Volpi" width="4001" height="404">
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" aria-label="Main">
-        <a href="index.html" class="active">Home</a>
-        <a href="Training.html">Training</a>
-        <a href="Advice.html">Advice</a>
-        <a href="About.html">About</a>
-        <a href="Contact.html" class="nav-cta">Contact</a>
-      </nav>
-    </div>
-  </header>
+<?php include __DIR__ . "/includes/header.php"; ?>
 
   <main>
 
@@ -41,9 +17,9 @@
           <h1 class="tagline">Your brand online.<br><em>Legal.</em></h1>
           <p class="lead">Trainings and hands-on legal support for brands, agencies and creators: the rules around content, IP and collaborations, made clear before they become a problem.</p>
           <div class="hero-ctas">
-            <a class="btn btn-outline-light" href="Training.html">See the trainings</a>
-            <a class="btn btn-outline-light" href="Advice.html">Legal support &amp; advice</a>
-            <a class="btn btn-primary" href="Contact.html">Book a call</a>
+            <a class="btn btn-outline-light" href="Training.php">See the trainings</a>
+            <a class="btn btn-outline-light" href="Advice.php">Legal support &amp; advice</a>
+            <a class="btn btn-primary" href="Contact.php">Book a call</a>
           </div>
         </div>
       </div>
@@ -72,7 +48,7 @@
           <h2>Hi, I'm Elisa</h2>
           <p>I'm an IP attorney and a content creator myself (you may know me from <a href="https://www.instagram.com/italiansinbelgium/" target="_blank" rel="noopener">@italiansinbelgium</a>), so I understand both the rules and the reality of building brands and content online.</p>
           <p>Whether you're building your own brand, launching a marketing campaign or hiring a creator, I help you get the legal side right before it becomes a problem.</p>
-          <a class="btn btn-outline" href="About.html">More about me</a>
+          <a class="btn btn-outline" href="About.php">More about me</a>
         </div>
         <figure class="split-media">
           <img src="images/elisa-portrait.jpg" alt="Elisa Volpi, IP attorney and content creator, smiling with her laptop" width="1200" height="2135" loading="lazy">
@@ -94,7 +70,7 @@
             </svg>
             <h3>Training</h3>
             <p>Practical sessions on IP, contracts and social media rules for your marketing, legal or creator team. Real cases and checklists you'll actually use; no legalese.</p>
-            <a class="card-link" href="Training.html">Discover the trainings</a>
+            <a class="card-link" href="Training.php">Discover the trainings</a>
           </article>
           <article class="card">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -102,7 +78,7 @@
             </svg>
             <h3>Advice for brands</h3>
             <p>Collaboration contracts, content ownership, campaign checks. Who owns the photo your creator just posted? Let's sort that out before it goes live.</p>
-            <a class="card-link" href="Advice.html">See how I support brands</a>
+            <a class="card-link" href="Advice.php">See how I support brands</a>
           </article>
           <article class="card">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -110,7 +86,7 @@
             </svg>
             <h3>Advice for creators</h3>
             <p>Brand deals, disclosure rules, licensing. Understand what you sign and negotiate fair terms with confidence, from your first collab to exclusivity clauses.</p>
-            <a class="card-link" href="Advice.html">See how I support creators</a>
+            <a class="card-link" href="Advice.php">See how I support creators</a>
           </article>
         </div>
       </div>
@@ -126,7 +102,7 @@
         <div>
           <h2>From the meeting room to the EUIPO stage</h2>
           <p>Today, almost everything you build, share or sell involves content, collaborations and online visibility, which also means that understanding the legal rules, rights and responsibilities behind them is no longer optional. The online world impacts how your brand is built, how it grows and how it is perceived.</p>
-          <a class="btn btn-outline" href="About.html">Get to know her</a>
+          <a class="btn btn-outline" href="About.php">Get to know her</a>
         </div>
       </div>
     </section>
@@ -138,8 +114,8 @@
           <h2>Need clarity on the legal side of today's digital world?</h2>
           <p>Understand the rules. Make better decisions. Avoid surprises.</p>
           <div class="cta-buttons">
-            <a class="btn btn-primary" href="Training.html">Check the trainings</a>
-            <a class="btn btn-primary" href="Advice.html">Check Legal support &amp; advice</a>
+            <a class="btn btn-primary" href="Training.php">Check the trainings</a>
+            <a class="btn btn-primary" href="Advice.php">Check Legal support &amp; advice</a>
           </div>
         </div>
       </div>
@@ -147,49 +123,4 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-logo">
-          <img src="https://vandervolpi.com/assets/logo/VDV_Logo1_off-white_RGB.png" alt="Van der Volpi" width="2001" height="1653" loading="lazy">
-        </div>
-        <div>
-          <h4>Get in touch</h4>
-          <ul>
-            <li><a href="mailto:info@vandervolpi.com">info@vandervolpi.com</a></li>
-            <li><a href="tel:+32474055052">+32 474 055 052</a></li>
-            <li>Alijt Bakehof 10, 9030 Ghent</li>
-            <li>BE 1001.894.390</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="Training.html">Training</a></li>
-            <li><a href="Advice.html">Advice</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Follow along</h4>
-          <ul>
-            <li><a href="https://www.instagram.com/vandervolpi/" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.linkedin.com/company/van-der-volpi/" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Van der Volpi – Your brand online. <em>Legal.</em></span>
-        <nav aria-label="Legal">
-          <a href="Privacy-Policy.html">Privacy policy</a>
-          <a href="Cookie-Policy.html">Cookie policy</a>
-          <a href="Disclaimer.html">Terms &amp; disclaimer</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?php include __DIR__ . "/includes/footer.php"; ?>
