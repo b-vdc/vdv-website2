@@ -573,6 +573,11 @@ figcaption {
   .cta-banner { padding: 56px 32px; border-radius: 72px 72px 72px 0; }
 }
 
+/* Hero CTAs: all three in a row, or all stacked — never split 2+1 */
+@media (max-width: 660px) {
+  .hero-ctas { flex-direction: column; align-items: flex-start; }
+}
+
 @media (max-width: 760px) {
   .brand img { width: 165px; }
   .nav-toggle { display: block; }
