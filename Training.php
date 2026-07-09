@@ -1,36 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Training – Van der Volpi</title>
-  <meta name="description" content="Practical legal trainings on IP, contracts and social media rules – for brands, agencies and universities. Real cases, usable checklists.">
-  <link rel="icon" type="image/png" href="https://vandervolpi.com/assets/logo/VDV_Favicon2_oranje_RGB.png">
-  <link rel="stylesheet" href="css/style.css">
-  <meta property="og:title" content="Training – Van der Volpi">
-  <meta property="og:description" content="Practical legal trainings on IP, contracts and social media rules – for brands, agencies and universities.">
-  <meta property="og:image" content="https://vandervolpi.com/assets/logo/VDV_Logo1_oranje_RGB.png">
-  <meta property="og:type" content="website">
-</head>
-<body>
+<?php
+$title = "Training – Van der Volpi";
+$description = "Practical legal trainings on IP, contracts and social media rules – for brands, agencies and universities. Real cases, usable checklists.";
+$ogDescription = "Practical legal trainings on IP, contracts and social media rules – for brands, agencies and universities.";
+$active = "Training";
+include __DIR__ . "/includes/head.php";
+?>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Van der Volpi – home">
-        <img src="https://vandervolpi.com/assets/logo/VDV_Logo2_oranje_RGB.png" alt="Van der Volpi" width="4001" height="404">
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" aria-label="Main">
-        <a href="index.html">Home</a>
-        <a href="Training.html" class="active">Training</a>
-        <a href="Advice.html">Advice</a>
-        <a href="About.html">About</a>
-        <a href="Contact.html" class="nav-cta">Contact</a>
-      </nav>
-    </div>
-  </header>
+<?php include __DIR__ . "/includes/header.php"; ?>
 
   <main>
 
@@ -41,7 +17,7 @@
           <h1>Trainings</h1>
           <p class="lead">Your practical legal guide in a digital-first world. Sessions built on real cases – so your team knows the rules before the campaign goes live, not after.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="Contact.html">Book your training</a>
+            <a class="btn btn-primary" href="Contact.php">Book your training</a>
           </div>
         </div>
       </div>
@@ -149,56 +125,11 @@
         <div class="cta-banner reveal">
           <h2>Ready to book a training?</h2>
           <p>Tell me about your team and I'll suggest the track that fits. A short intro call is free.</p>
-          <a class="btn btn-primary" href="Contact.html">Get in touch</a>
+          <a class="btn btn-primary" href="Contact.php">Get in touch</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-logo">
-          <img src="https://vandervolpi.com/assets/logo/VDV_Logo1_off-white_RGB.png" alt="Van der Volpi" width="2001" height="1653" loading="lazy">
-        </div>
-        <div>
-          <h4>Get in touch</h4>
-          <ul>
-            <li><a href="mailto:info@vandervolpi.com">info@vandervolpi.com</a></li>
-            <li><a href="tel:+32474055052">+32 474 055 052</a></li>
-            <li>Alijt Bakehof 10, 9030 Ghent</li>
-            <li>BE 1001.894.390</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="Training.html">Training</a></li>
-            <li><a href="Advice.html">Advice</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Follow along</h4>
-          <ul>
-            <li><a href="https://www.instagram.com/vandervolpi/" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.linkedin.com/company/van-der-volpi/" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Van der Volpi – Your brand online. <em>Legal.</em></span>
-        <nav aria-label="Legal">
-          <a href="Privacy-Policy.html">Privacy policy</a>
-          <a href="Cookie-Policy.html">Cookie policy</a>
-          <a href="Disclaimer.html">Terms &amp; disclaimer</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?php include __DIR__ . "/includes/footer.php"; ?>

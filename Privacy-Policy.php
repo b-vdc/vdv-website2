@@ -1,33 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy policy – Van der Volpi</title>
-  <meta name="description" content="How Van der Volpi handles your personal data.">
-  <meta name="robots" content="noindex">
-  <link rel="icon" type="image/png" href="https://vandervolpi.com/assets/logo/VDV_Favicon2_oranje_RGB.png">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<?php
+$title = "Privacy policy – Van der Volpi";
+$description = "How Van der Volpi handles your personal data.";
+$robots = "noindex";
+$active = "";
+include __DIR__ . "/includes/head.php";
+?>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Van der Volpi – home">
-        <img src="https://vandervolpi.com/assets/logo/VDV_Logo2_oranje_RGB.png" alt="Van der Volpi" width="4001" height="404">
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" aria-label="Main">
-        <a href="index.html">Home</a>
-        <a href="Training.html">Training</a>
-        <a href="Advice.html">Advice</a>
-        <a href="About.html">About</a>
-        <a href="Contact.html" class="nav-cta">Contact</a>
-      </nav>
-    </div>
-  </header>
+<?php include __DIR__ . "/includes/header.php"; ?>
 
   <main>
     <section>
@@ -35,7 +14,7 @@
         <h1>Privacy Policy</h1>
 
         <h4>Who is responsible for your data?</h4>
-        <p>Van der Volpi<br>You can find all the ways to contact us on the <a href="Contact.html">contact page</a>.</p>
+        <p>Van der Volpi<br>You can find all the ways to contact us on the <a href="Contact.php">contact page</a>.</p>
 
         <h4>What personal data do we collect?</h4>
         <p>We only collect personal data when you:</p>
@@ -89,19 +68,4 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom" style="border-top: none; margin-top: 0; padding-top: 0;">
-        <span>&copy; <span data-year>2026</span> Van der Volpi – Your brand online. <em>Legal.</em></span>
-        <nav aria-label="Legal">
-          <a href="Privacy-Policy.html">Privacy policy</a>
-          <a href="Cookie-Policy.html">Cookie policy</a>
-          <a href="Disclaimer.html">Terms &amp; disclaimer</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?php include __DIR__ . "/includes/footer.php"; ?>

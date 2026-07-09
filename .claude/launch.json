@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "vdv-site",
-      "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8123"],
+      "runtimeExecutable": "php",
+      "runtimeArgs": ["-S", "localhost:8123"],
       "port": 8123
     }
   ]
