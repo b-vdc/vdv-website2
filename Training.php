@@ -28,7 +28,7 @@ include __DIR__ . "/includes/head.php";
       <div class="container">
         <div class="section-head reveal">
           <h2>Who the trainings are for</h2>
-          <p>If your work touches content, collaborations or campaigns, the legal side is now part of the job. These sessions make it manageable.</p>
+          <p>If your work touches content, collaborations or campaigns, the legal side is now part of the job. These sessions give you the confidence to handle it.</p>
         </div>
         <div class="card-grid reveal">
           <article class="card card-spring">
@@ -36,7 +36,7 @@ include __DIR__ . "/includes/head.php";
               <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/>
             </svg>
             <h3>Brands &amp; businesses</h3>
-            <p>For marketing, legal and social media teams that work with creators, run campaigns and publish content every day – and want to protect budget, content and reputation.</p>
+            <p>For marketing, legal and social media teams that work with creators and run campaigns, and want to protect budget, content and reputation.</p>
           </article>
           <article class="card card-periwinkle">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -62,10 +62,10 @@ include __DIR__ . "/includes/head.php";
         <div>
           <h2>What you'll learn</h2>
           <ul class="check-list">
-            <li>Who owns content – and the difference between owning and licensing it</li>
+            <li>Who owns the content and the difference between owning and licensing it</li>
             <li>Hidden IP risks: music, memes, AI-generated material and third-party content</li>
             <li>Usage rights that actually cover you: platforms, duration, ads, edits, reuse</li>
-            <li>What's law and what's just platform guidelines – and why the difference matters</li>
+            <li>What's the law and what's just platform guidelines, and why the difference matters</li>
             <li>Advertising disclosure done right: sponsored posts, gifts, affiliate links, invited experiences</li>
             <li>The essentials of a solid collaboration contract</li>
             <li>A pre-campaign legal checklist you can run before every launch</li>
@@ -83,7 +83,7 @@ include __DIR__ . "/includes/head.php";
       <div class="container">
         <div class="section-head reveal">
           <h2>Pick your track</h2>
-          <p>One complete program, or a focused deep-dive – whatever your team needs most.</p>
+          <p>One complete program or a focused deep-dive, whatever your team needs most.</p>
         </div>
         <div class="card-grid reveal">
           <article class="card">
@@ -98,7 +98,7 @@ include __DIR__ . "/includes/head.php";
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.7 1.3 1.5 1.5 2.5h5c.2-1 .7-1.8 1.5-2.5A6 6 0 0 0 12 3z"/>
             </svg>
-            <h3>Intellectual property</h3>
+            <h3>Intellectual Property</h3>
             <p>Trademarks, designs and brand strategy – plus who owns what when content, creators and AI get involved.</p>
           </article>
           <article class="card">
@@ -112,7 +112,7 @@ include __DIR__ . "/includes/head.php";
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M9 6h6"/><circle cx="12" cy="14" r="3.2"/><path d="M12 12.2v1.8l1.2 1"/>
             </svg>
-            <h3>Social media</h3>
+            <h3>Social Media</h3>
             <p>The rules, laws and platform guidelines behind everyday posting – from disclosure tags to reposting someone else's content.</p>
           </article>
         </div>
