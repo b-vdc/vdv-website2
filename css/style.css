@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Van der Volpi — website v2
+   Van der Volpi – website v2
    Design system from the VDV brandbook (b-vdc/vdv-brandbook).
    Fonts + logos load from the protected asset host: vandervolpi.com/assets/
    ========================================================================== */
@@ -269,7 +269,7 @@ section { padding: 72px 0; }
   border-radius: 7px 7px 7px 0;
 }
 /* Monumental tagline: display sizes need tighter leading than the
-   document rule of +50% — 1.12 keeps the two lines reading as one lockup */
+   document rule of +50% – 1.12 keeps the two lines reading as one lockup */
 .hero h1 {
   color: var(--vdv-offwhite);
   font-size: clamp(3.2rem, 10vw, 7rem);
@@ -454,7 +454,7 @@ figcaption {
   background: var(--vdv-eggplant-80);
 }
 .placeholder-block p, .placeholder-block li, .placeholder-block h4 { color: var(--vdv-eggplant); }
-/* Pastel background: Eggplant text only (brandbook §4) — links included */
+/* Pastel background: Eggplant text only (brandbook §4) – links included */
 .placeholder-block a:not(.btn) { color: var(--vdv-eggplant); font-weight: 600; text-decoration: underline; }
 .placeholder-badge {
   position: absolute;
@@ -573,7 +573,7 @@ figcaption {
   .cta-banner { padding: 56px 32px; border-radius: 72px 72px 72px 0; }
 }
 
-/* Hero CTAs: all three in a row, or all stacked — never split 2+1 */
+/* Hero CTAs: all three in a row, or all stacked – never split 2+1 */
 @media (max-width: 660px) {
   .hero-ctas { flex-direction: column; align-items: flex-start; }
 }
