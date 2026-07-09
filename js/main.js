@@ -1,4 +1,4 @@
-// Van der Volpi — small site enhancements (no framework needed)
+// Van der Volpi – small site enhancements (no framework needed)
 
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile navigation toggle
