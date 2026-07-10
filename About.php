@@ -11,11 +11,15 @@ include __DIR__ . "/includes/head.php";
   <main>
 
     <section class="page-hero">
-      <div class="bubble-deco bd-1" aria-hidden="true"></div>
-      <div class="container">
+      <div class="container hero-split">
         <div class="hero-inner">
           <h1>I'm Elisa – your partner in today's digital world</h1>
           <p class="lead">IP attorney. Content creator. One person, both sides of the table.</p>
+        </div>
+        <div class="hero-media">
+          <div class="hero-portrait">
+            <img src="images/elisa-portrait.jpg" alt="Elisa Volpi, IP attorney and content creator, smiling with her laptop" width="1200" height="2135">
+          </div>
         </div>
       </div>
     </section>
