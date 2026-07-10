@@ -335,6 +335,10 @@ section { padding: 72px 0; }
 
 /* Page hero (subpages): shorter, with small deco */
 .page-hero { position: relative; overflow: hidden; padding: 72px 0 56px; }
+/* Text always paints above the deco bubble */
+.page-hero .container { position: relative; z-index: 2; }
+/* Keep long titles out of the bubble's corner */
+.page-hero h1 { max-width: 820px; }
 .page-hero .lead { font-size: 1.15rem; max-width: 640px; }
 
 /* ---- Cards ---- */
@@ -560,9 +564,11 @@ figcaption {
 }
 
 /* ---- Responsive ---- */
-/* Subpage heroes below ~1100px: keep the bubble peeking from the top corner. */
-@media (max-width: 1100px) {
-  .bd-1 { width: 150px; height: 150px; border-radius: 75px 75px 75px 0; top: -50px; right: -40px; }
+/* Subpage heroes below ~1260px: there's no quiet right half for the bubble, so
+   only a sliver of it peeks from the top corner, staying inside the hero's top
+   padding so it can never cover the title. */
+@media (max-width: 1260px) {
+  .bd-1 { width: 150px; height: 150px; border-radius: 75px 75px 75px 0; top: -90px; right: -40px; }
 }
 
 @media (max-width: 900px) {
