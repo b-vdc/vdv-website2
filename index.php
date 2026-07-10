@@ -115,7 +115,7 @@ include __DIR__ . "/includes/head.php";
           <p>Understand the rules. Make better decisions. Avoid surprises.</p>
           <div class="cta-buttons">
             <a class="btn btn-primary" href="Training.php">Check the trainings</a>
-            <a class="btn btn-primary" href="Advice.php">Check Legal support &amp; advice</a>
+            <a class="btn btn-primary" href="Advice.php">Legal support &amp; advice</a>
           </div>
         </div>
       </div>
