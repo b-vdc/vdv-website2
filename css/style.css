@@ -325,17 +325,49 @@ section { padding: 72px 0; }
   to { transform: translateX(-50%); }
 }
 
-/* Decorative speech bubbles: 3 corners at 50% of shortest side, 1 square (brandbook §6) */
-.bubble-deco { position: absolute; z-index: 1; pointer-events: none; }
-.bd-1 { /* orange, square corner bottom-left */
-  width: 180px; height: 180px; background: var(--vdv-orange);
-  border-radius: 90px 90px 90px 0;
-  top: 48px; right: 8%;
+/* ---- Page hero (subpages): giant speech-bubble panel ----
+   The hero itself is the brand bubble: 3 corners at maximum radius (the 999px
+   values clamp to half the panel's height), square corner bottom-left
+   (brandbook §6). Pastel backgrounds allow Eggplant text only (brandbook §4);
+   each subpage gets its own tint. */
+.page-hero { padding: 40px 0 56px; }
+.hero-bubble {
+  position: relative;
+  text-align: center;
+  padding: 76px 96px 68px;
+  border-radius: 999px 999px 999px 0;
 }
-
-/* Page hero (subpages): shorter, with small deco */
-.page-hero { position: relative; overflow: hidden; padding: 72px 0 56px; }
-.page-hero .lead { font-size: 1.15rem; max-width: 640px; }
+.hb-spring { background: var(--vdv-spring-80); }
+.hb-periwinkle { background: var(--vdv-periwinkle-80); }
+.hb-orange { background: var(--vdv-orange-80); }
+.hb-eggplant { background: var(--vdv-eggplant-80); }
+/* Small solid companion bubble docked on the panel's top edge */
+.hero-bubble::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 96px;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px 32px 0 32px;
+}
+.hb-spring::before { background: var(--vdv-spring-40); }
+.hb-periwinkle::before { background: var(--vdv-periwinkle-40); }
+.hb-orange::before { background: var(--vdv-orange-40); }
+.hb-eggplant::before { background: var(--vdv-eggplant-40); }
+.hero-bubble h1,
+.hero-bubble .lead { color: var(--vdv-eggplant); }
+.hero-bubble h1 { max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero-bubble .lead { font-size: 1.15rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-bubble .lead a:not(.btn) { color: var(--vdv-eggplant); font-weight: 600; text-decoration: underline; }
+.hero-bubble .hero-ctas { justify-content: center; margin-bottom: 0; }
+@media (max-width: 760px) {
+  .hero-bubble { padding: 56px 32px 48px; border-radius: 88px 88px 88px 0; }
+  .hero-bubble::before { right: 40px; width: 48px; height: 48px; border-radius: 24px 24px 0 24px; }
+}
+@media (max-width: 660px) {
+  .hero-bubble .hero-ctas { align-items: center; }
+}
 
 /* ---- Cards ---- */
 .card-grid {
@@ -560,11 +592,6 @@ figcaption {
 }
 
 /* ---- Responsive ---- */
-/* Subpage heroes below ~1100px: keep the bubble peeking from the top corner. */
-@media (max-width: 1100px) {
-  .bd-1 { width: 150px; height: 150px; border-radius: 75px 75px 75px 0; top: -50px; right: -40px; }
-}
-
 @media (max-width: 900px) {
   .hero { padding-top: 72px; }
   .hero-ctas { margin-bottom: 64px; }
