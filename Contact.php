@@ -11,10 +11,10 @@ include __DIR__ . "/includes/head.php";
   <main>
 
     <section class="page-hero">
-      <div class="bubble-deco bd-1" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-inner">
-          <h1>Get in touch</h1>
+          <p class="hero-kicker">Contact</p>
+          <h1>Get in <span class="accent-i">touch</span></h1>
           <p class="lead">A question, a campaign that needs a second look, or a training to plan? Email or call – I read and answer everything myself.</p>
         </div>
       </div>

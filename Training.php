@@ -11,9 +11,9 @@ include __DIR__ . "/includes/head.php";
   <main>
 
     <section class="page-hero">
-      <div class="bubble-deco bd-1" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-inner">
+          <p class="hero-kicker">Training</p>
           <h1>Trainings</h1>
           <p class="lead">Your practical legal guide in a digital-first world. Sessions built on real cases – so your team knows the rules before the campaign goes live, not after.</p>
           <div class="hero-ctas">

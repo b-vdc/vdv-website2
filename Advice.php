@@ -11,10 +11,10 @@ include __DIR__ . "/includes/head.php";
   <main>
 
     <section class="page-hero">
-      <div class="bubble-deco bd-1" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-inner">
-          <h1>Your brand is one of your most valuable assets</h1>
+          <p class="hero-kicker">Advice</p>
+          <h1>Your brand is one of your most <span class="accent-i">valuable</span> assets</h1>
           <p class="lead">Let me help you protect it. Hands-on support in three areas: <a href="#intellectual-property">intellectual property</a>, <a href="#contracts">contracts</a> and <a href="#social-media">social media</a>.</p>
           <div class="hero-ctas">
             <a class="btn btn-primary" href="Contact.php">Book a call</a>

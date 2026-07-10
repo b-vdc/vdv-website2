@@ -325,17 +325,37 @@ section { padding: 72px 0; }
   to { transform: translateX(-50%); }
 }
 
-/* Decorative speech bubbles: 3 corners at 50% of shortest side, 1 square (brandbook §6) */
-.bubble-deco { position: absolute; z-index: 1; pointer-events: none; }
-.bd-1 { /* orange, square corner bottom-left */
-  width: 180px; height: 180px; background: var(--vdv-orange);
-  border-radius: 90px 90px 90px 0;
-  top: 48px; right: 8%;
+/* ---- Page hero (subpages): Eggplant statement band ----
+   Echoes the home hero. Text on Eggplant may only be Off-White or Orange
+   (brandbook §4); the deco is a tone-on-tone watermark that stays in the
+   quiet right half, never under the text. */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--vdv-eggplant);
+  padding: 88px 0 72px;
 }
-
-/* Page hero (subpages): shorter, with small deco */
-.page-hero { position: relative; overflow: hidden; padding: 72px 0 56px; }
-.page-hero .lead { font-size: 1.15rem; max-width: 640px; }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: -130px;
+  width: 440px;
+  height: 440px;
+  background: var(--vdv-eggplant-40);
+  opacity: 0.16;
+  border-radius: 220px 220px 0 220px;
+  pointer-events: none;
+}
+.page-hero .container { position: relative; z-index: 2; }
+.page-hero .hero-kicker { margin-bottom: 1.25em; }
+.page-hero h1 { color: var(--vdv-offwhite); max-width: 820px; }
+.page-hero .lead { color: var(--vdv-offwhite); font-size: 1.15rem; max-width: 640px; }
+.page-hero .hero-ctas { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .page-hero { padding: 64px 0 56px; }
+  .page-hero::before { display: none; }
+}
 
 /* ---- Cards ---- */
 .card-grid {
@@ -560,11 +580,6 @@ figcaption {
 }
 
 /* ---- Responsive ---- */
-/* Subpage heroes below ~1100px: keep the bubble peeking from the top corner. */
-@media (max-width: 1100px) {
-  .bd-1 { width: 150px; height: 150px; border-radius: 75px 75px 75px 0; top: -50px; right: -40px; }
-}
-
 @media (max-width: 900px) {
   .hero { padding-top: 72px; }
   .hero-ctas { margin-bottom: 64px; }
