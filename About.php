@@ -29,7 +29,7 @@ include __DIR__ . "/includes/head.php";
       <div class="container split reveal">
         <div>
           <h2>Why I do this</h2>
-          <p>I'm an IP Attorney and a Content Creator myself (<a href="https://www.instagram.com/italiansinbelgium/" target="_blank" rel="noopener">@italiansinbelgium</a>), so, I understand both the rules and the reality of building brands and content online.</p>
+          <p>I'm an IP attorney and a content creator myself (<a href="https://www.instagram.com/italiansinbelgium/" target="_blank" rel="noopener">@italiansinbelgium</a>), so I understand both the rules and the reality of building brands and content online.</p>
           <p>I work with businesses, agencies and creators through workshops, trainings and hands-on legal support. The goal is always the same: your team makes smarter and safer decisions about content, collaborations and campaigns, while avoiding expensive mistakes.</p>
           <p>Legal isn't the brake. When used well, it's part of the strategy.</p>
           <a class="btn btn-primary" href="Contact.php">Book a call</a>
