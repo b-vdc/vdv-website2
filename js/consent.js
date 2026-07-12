@@ -59,7 +59,7 @@ function vdvOpenConsentBanner() {
     "This site uses Google reCAPTCHA to keep the contact form spam free. It only runs once you say yes. See our "
   ));
   var link = document.createElement("a");
-  link.href = "Cookie-Policy.php";
+  link.href = "/cookie-policy";
   link.textContent = "cookie policy";
   text.appendChild(link);
   text.appendChild(document.createTextNode("."));

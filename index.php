@@ -17,9 +17,9 @@ include __DIR__ . "/includes/head.php";
           <h1 class="tagline">Your brand online.<br><em>Legal.</em></h1>
           <p class="lead">Trainings and hands-on legal support for brands, agencies and creators: the rules around content, IP and collaborations, made clear before they become a problem.</p>
           <div class="hero-ctas">
-            <a class="btn btn-outline-light" href="Training.php">See the trainings</a>
-            <a class="btn btn-outline-light" href="Advice.php">Legal support &amp; advice</a>
-            <a class="btn btn-primary" href="Contact.php">Book a call</a>
+            <a class="btn btn-outline-light" href="/training">See the trainings</a>
+            <a class="btn btn-outline-light" href="/advice">Legal support &amp; advice</a>
+            <a class="btn btn-primary" href="/contact">Book a call</a>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ include __DIR__ . "/includes/head.php";
           <h2>Hi, I'm Elisa</h2>
           <p>I'm an IP attorney and a content creator myself (you may know me from <a href="https://www.instagram.com/italiansinbelgium/" target="_blank" rel="noopener">@italiansinbelgium</a>), so I understand both the rules and the reality of building brands and content online.</p>
           <p>Whether you're building your own brand, launching a marketing campaign or hiring a creator, I help you get the legal side right before it becomes a problem.</p>
-          <a class="btn btn-outline" href="About.php">More about me</a>
+          <a class="btn btn-outline" href="/about">More about me</a>
         </div>
         <figure class="split-media">
           <img src="images/elisa-portrait.jpg" alt="Elisa Volpi, IP attorney and content creator, smiling with her laptop" width="1200" height="2135" loading="lazy">
@@ -70,7 +70,7 @@ include __DIR__ . "/includes/head.php";
             </svg>
             <h3>Training</h3>
             <p>Practical sessions on IP, contracts and social media rules for your marketing, legal or creator team. Real cases and checklists you'll actually use; no legalese.</p>
-            <a class="card-link" href="Training.php">Discover the trainings</a>
+            <a class="card-link" href="/training">Discover the trainings</a>
           </article>
           <article class="card">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -78,7 +78,7 @@ include __DIR__ . "/includes/head.php";
             </svg>
             <h3>Advice for brands</h3>
             <p>Collaboration contracts, content ownership, campaign checks. Who owns the photo your creator just posted? Let's sort that out before it goes live.</p>
-            <a class="card-link" href="Advice.php">See how I support brands</a>
+            <a class="card-link" href="/advice">See how I support brands</a>
           </article>
           <article class="card">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -86,7 +86,7 @@ include __DIR__ . "/includes/head.php";
             </svg>
             <h3>Advice for creators</h3>
             <p>Brand deals, disclosure rules, licensing. Understand what you sign and negotiate fair terms with confidence, from your first collab to exclusivity clauses.</p>
-            <a class="card-link" href="Advice.php">See how I support creators</a>
+            <a class="card-link" href="/advice">See how I support creators</a>
           </article>
         </div>
       </div>
@@ -102,7 +102,7 @@ include __DIR__ . "/includes/head.php";
         <div>
           <h2>From the meeting room to the EUIPO stage</h2>
           <p>Today, almost everything you build, share or sell involves content, collaborations and online visibility, which also means that understanding the legal rules, rights and responsibilities behind them is no longer optional. The online world impacts how your brand is built, how it grows and how it is perceived.</p>
-          <a class="btn btn-outline" href="About.php">Get to know her</a>
+          <a class="btn btn-outline" href="/about">Get to know her</a>
         </div>
       </div>
     </section>
@@ -114,8 +114,8 @@ include __DIR__ . "/includes/head.php";
           <h2>Need clarity on the legal side of today's digital world?</h2>
           <p>Understand the rules. Make better decisions. Avoid surprises.</p>
           <div class="cta-buttons">
-            <a class="btn btn-primary" href="Training.php">Check the trainings</a>
-            <a class="btn btn-primary" href="Advice.php">Legal support &amp; advice</a>
+            <a class="btn btn-primary" href="/training">Check the trainings</a>
+            <a class="btn btn-primary" href="/advice">Legal support &amp; advice</a>
           </div>
         </div>
       </div>

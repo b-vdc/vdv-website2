@@ -1,0 +1,50 @@
+# Clean, lowercase, extensionless URLs. Files stay capitalised; URLs do not.
+Options -MultiViews
+RewriteEngine On
+
+# --- 301 canonicalisation ---
+# Gated on %{THE_REQUEST} (the original request line, unchanged by internal
+# rewrites) so the "serve" rules below can never trigger a redirect loop.
+# The ".php" rules use [NC] to catch any casing (About.php, about.php, ...).
+# The capitalised extensionless rules are case-sensitive (no [NC]) so the clean
+# lowercase URLs never match them.
+
+# index(.php) / Index(.php) -> /
+RewriteCond %{THE_REQUEST} \s/+[Ii]ndex(\.php)?[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
+# Page requested with a .php extension (any case) -> clean lowercase
+RewriteCond %{THE_REQUEST} \s/+training\.php[\s?] [NC]
+RewriteRule ^ /training [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+advice\.php[\s?] [NC]
+RewriteRule ^ /advice [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+about\.php[\s?] [NC]
+RewriteRule ^ /about [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+contact\.php[\s?] [NC]
+RewriteRule ^ /contact [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+privacy-policy\.php[\s?] [NC]
+RewriteRule ^ /privacy-policy [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+cookie-policy\.php[\s?] [NC]
+RewriteRule ^ /cookie-policy [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+disclaimer\.php[\s?] [NC]
+RewriteRule ^ /disclaimer [R=301,L]
+
+# Capitalised extensionless legacy names -> clean lowercase.
+# Case-sensitive (no [NC]), so lowercase clean URLs never match; and the internal
+# "serve" targets (About.php, ...) carry .php so they don't match either.
+RewriteRule ^Training/?$ /training [R=301,L]
+RewriteRule ^Advice/?$ /advice [R=301,L]
+RewriteRule ^About/?$ /about [R=301,L]
+RewriteRule ^Contact/?$ /contact [R=301,L]
+RewriteRule ^Privacy-Policy/?$ /privacy-policy [R=301,L]
+RewriteRule ^Cookie-Policy/?$ /cookie-policy [R=301,L]
+RewriteRule ^Disclaimer/?$ /disclaimer [R=301,L]
+
+# --- Serve clean lowercase URLs from the capitalised .php files ---
+RewriteRule ^training/?$        Training.php       [L]
+RewriteRule ^advice/?$          Advice.php         [L]
+RewriteRule ^about/?$           About.php          [L]
+RewriteRule ^contact/?$         Contact.php        [L]
+RewriteRule ^privacy-policy/?$  Privacy-Policy.php [L]
+RewriteRule ^cookie-policy/?$   Cookie-Policy.php  [L]
+RewriteRule ^disclaimer/?$      Disclaimer.php     [L]

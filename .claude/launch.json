@@ -4,7 +4,7 @@
     {
       "name": "vdv-site",
       "runtimeExecutable": "php",
-      "runtimeArgs": ["-S", "localhost:8123"],
+      "runtimeArgs": ["-S", "localhost:8123", "router.php"],
       "port": 8123
     }
   ]

@@ -17,6 +17,8 @@ Pages are `.php`: the header, footer and `<head>` boilerplate live once in `incl
 | `Contact.php` | Contact details; **placeholders** for the contact form and online booking (v1 ships without them) |
 | `Privacy-Policy.php` · `Cookie-Policy.php` · `Disclaimer.php` | Legal pages (text carried over from v1) |
 | `Social-Media-Rules.html` · `Intellectual-Property.html` · `Contracts.html` | Redirect stubs – these v1 pages merged into `Advice.php`. Plain static HTML (no shared markup, so no need for PHP) |
+| `.htaccess` | Apache rewrite rules: serves clean lowercase URLs (`/about`) from the `.php` files and 301-redirects the old `.php`/capitalised URLs |
+| `router.php` | Local-preview only: emulates `.htaccess` for PHP's built-in server (which ignores `.htaccess`) |
 | `includes/head.php` | Shared `<head>`: doctype, meta, title/description, favicon, stylesheet, optional Open Graph tags |
 | `includes/header.php` | Shared site header/nav, highlights the current page via an `$active` variable |
 | `includes/footer.php` | Shared site footer, plus the closing `<script>`/`</body>`/`</html>` |
@@ -29,15 +31,15 @@ Pages are `.php`: the header, footer and `<head>` boilerplate live once in `incl
 - **Brand assets are not in this repo.** Logos and fonts load from the protected asset host `https://vandervolpi.com/assets/...` (documented in the brandbook), which is never overwritten by site deploys.
 - **Placeholder images** are SVGs watermarked "PLACEHOLDER"; each one states what real image should replace it. Placeholder feature blocks (form, booking) carry a visible badge.
 - No cookies, no analytics, no cookie banner in v1.
-- Page filenames keep v1's capitalisation (`Training.php`, `Privacy-Policy.php`) so existing inbound links keep working, aside from the `.html` → `.php` extension change.
+- Public URLs are clean, lowercase and extensionless (`/about`, `/privacy-policy`, `/` for home). Apache's `.htaccess` maps each URL to its `.php` file, so the files keep v1's capitalisation (`Training.php`, `Privacy-Policy.php`) internally while never exposing it. Old capitalised and/or `.php` URLs 301-redirect to the clean form, so existing inbound links keep working.
 - Every page sets `$title`, `$description`, `$active` (and optionally `$ogDescription`, `$robots`) before including `includes/head.php`, then includes `includes/header.php` and `includes/footer.php` around its own `<main>` content.
 
 ## Local preview
 
-Requires PHP. Use the built-in server:
+Requires PHP. Use the built-in server with the router (so clean URLs and redirects work as in production):
 
 ```
-php -S localhost:8123
+php -S localhost:8123 router.php
 ```
 
-then open http://localhost:8123. A plain static server (e.g. `python -m http.server`) will not execute the `.php` pages – it will only serve their raw source.
+then open http://localhost:8123. The `router.php` argument is required for the clean-URL routing; without it the built-in server ignores `.htaccess` and only the raw `.php` paths would resolve. A plain static server (e.g. `python -m http.server`) will not execute the `.php` pages – it will only serve their raw source.

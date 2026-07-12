@@ -17,10 +17,10 @@
         <div>
           <h4>Explore</h4>
           <ul>
-            <li><a href="Training.php">Training</a></li>
-            <li><a href="Advice.php">Advice</a></li>
-            <li><a href="About.php">About</a></li>
-            <li><a href="Contact.php">Contact</a></li>
+            <li><a href="/training">Training</a></li>
+            <li><a href="/advice">Advice</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -34,9 +34,9 @@
       <div class="footer-bottom">
         <span>&copy; <span data-year>2026</span> Van der Volpi – Your brand online. <em>Legal.</em></span>
         <nav aria-label="Legal">
-          <a href="Privacy-Policy.php">Privacy policy</a>
-          <a href="Cookie-Policy.php">Cookie policy</a>
-          <a href="Disclaimer.php">Terms &amp; disclaimer</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="/cookie-policy">Cookie policy</a>
+          <a href="/disclaimer">Terms &amp; disclaimer</a>
         </nav>
       </div>
     </div>
