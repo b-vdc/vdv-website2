@@ -14,7 +14,7 @@ include __DIR__ . "/includes/head.php";
       <div class="container hero-split">
         <div class="hero-inner">
           <h1>Get in touch</h1>
-          <p class="lead">A question, a campaign that needs a second look, or a training to plan? Email or call – I read and answer everything myself.</p>
+          <p class="lead">Do you have a question, a contract that needs a second look, a doubt about a campaign or a trademark that needs to be protected? Send an email or book a call, let's discuss where you are at and what you need.</p>
         </div>
         <div class="hero-media">
           <div class="hero-portrait">
