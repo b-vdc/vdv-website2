@@ -3,6 +3,7 @@ $title = "Contact – Van der Volpi";
 $description = "Get in touch with Van der Volpi: book a call, ask a question or plan a training. Based in Ghent, working with brands and creators everywhere.";
 $ogDescription = "Get in touch: book a call, ask a question or plan a training.";
 $active = "Contact";
+$pageScripts = ["js/contact.js"];
 include __DIR__ . "/includes/head.php";
 ?>
 
@@ -57,13 +58,42 @@ include __DIR__ . "/includes/head.php";
           </ul>
         </div>
 
-        <!-- Contact form placeholder -->
-        <div class="placeholder-block reveal">
-          <span class="placeholder-badge">Placeholder – contact form</span>
-          <h4>The contact form lands here</h4>
-          <p>A simple form (name, email, message) is planned for a next version of this site. Until then, the fastest way to reach me:</p>
-          <p><a class="btn btn-primary" href="mailto:info@vandervolpi.com">Email me directly</a></p>
-        </div>
+        <!-- Contact form -->
+        <div class="form-card reveal">
+          <h4>Send a message</h4>
+          <p>Fill in the form below and I will get back to you within 48 hours.</p>
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" required maxlength="120">
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" required maxlength="180">
+            </div>
+            <div class="form-field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="5" required maxlength="5000"></textarea>
+            </div>
+
+            <div class="form-field hp-field" aria-hidden="true">
+              <label for="cf-company">Company</label>
+              <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send message</button>
+
+            <p class="form-recaptcha-note">This form is protected by reCAPTCHA. The <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply. See our <a href="Privacy-Policy.php">privacy policy</a> for how your message is used.</p>
+
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+          </form>
+
+          <div id="consent-gate" class="consent-gate" hidden>
+            <p>To protect this form from spam, sending a message needs Google reCAPTCHA, which needs your consent first.</p>
+            <button type="button" id="consent-gate-accept" class="btn btn-outline">Accept and continue</button>
+            <p class="meta-note">Prefer not to? Email me directly at <a href="mailto:info@vandervolpi.com">info@vandervolpi.com</a>.</p>
+          </div>
       </div>
     </section>
 

@@ -611,6 +611,101 @@ figcaption {
   .hero-ctas { flex-direction: column; align-items: flex-start; }
 }
 
+/* ---- Contact form ---- */
+.form-card {
+  position: relative;
+  background: var(--vdv-offwhite);
+  border: 1.5px solid var(--vdv-eggplant-80);
+  border-radius: var(--radius-card) var(--radius-card) var(--radius-card) 0;
+  padding: 40px 32px;
+  box-shadow: var(--shadow-soft);
+}
+.contact-form { margin-top: 20px; }
+.form-field { margin-bottom: 18px; }
+.form-field label {
+  display: block;
+  font-weight: 600;
+  color: var(--vdv-eggplant);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--vdv-darkbrown);
+  background: #fff;
+  border: 1.5px solid var(--vdv-eggplant-80);
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-field textarea { resize: vertical; min-height: 120px; }
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--vdv-orange);
+  box-shadow: 0 0 0 3px var(--vdv-orange-80);
+}
+
+/* Honeypot: stays in the DOM/tab flow (so it still catches auto-fill bots)
+   but is never visible or reachable for real visitors. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-recaptcha-note {
+  font-size: 0.82rem;
+  color: var(--vdv-eggplant);
+  margin: 14px 0 0;
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.form-status-success { color: var(--vdv-eggplant); }
+.form-status-error { color: var(--vdv-orange); }
+
+.consent-gate {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--vdv-eggplant-40);
+}
+.consent-gate p { margin-bottom: 12px; }
+
+/* The reCAPTCHA v3 badge is redundant with .form-recaptcha-note, which
+   carries the required disclosure text; hiding the badge is permitted as
+   long as that text stays visible near the form. */
+.grecaptcha-badge { visibility: hidden; }
+
+/* ---- Cookie consent banner ---- */
+.cookie-banner {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--vdv-eggplant);
+  color: var(--vdv-offwhite);
+  border-radius: 26px 26px 26px 0;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-soft);
+}
+.cookie-banner p { color: var(--vdv-offwhite); margin: 0 0 16px; font-size: 0.95rem; }
+.cookie-banner a { color: var(--vdv-orange); font-weight: 600; }
+.cookie-banner-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.cookie-banner-actions .btn { padding: 10px 22px; font-size: 0.92rem; }
+
 @media (max-width: 760px) {
   .brand img { width: 165px; }
   .nav-toggle { display: block; }
