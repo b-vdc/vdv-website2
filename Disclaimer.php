@@ -24,7 +24,7 @@ include __DIR__ . "/includes/head.php";
         It does not constitute legal advice and does not create a lawyer&ndash;client relationship.<br>
         Legal advice is only provided after a formal agreement has been concluded.<br>
         VAN DER VOLPI cannot be held liable for actions taken based on information found on this website.<br>
-        If you need legal advice for your specific situation, please <a href="Contact.php">get in touch</a>.</p>
+        If you need legal advice for your specific situation, please <a href="/contact">get in touch</a>.</p>
       </div>
     </section>
   </main>

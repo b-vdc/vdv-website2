@@ -32,7 +32,7 @@ include __DIR__ . "/includes/head.php";
           <p>I'm an IP attorney and a content creator myself (<a href="https://www.instagram.com/italiansinbelgium/" target="_blank" rel="noopener">@italiansinbelgium</a>), so I understand both the rules and the reality of building brands and content online.</p>
           <p>I work with businesses, agencies and creators through workshops, trainings and hands-on legal support. The goal is always the same: your team makes smarter and safer decisions about content, collaborations and campaigns, while avoiding expensive mistakes.</p>
           <p>Legal isn't the brake. When used well, it's part of the strategy.</p>
-          <a class="btn btn-primary" href="Contact.php">Book a call</a>
+          <a class="btn btn-primary" href="/contact">Book a call</a>
         </div>
         <figure class="split-media">
           <img src="images/elisa-about.jpg" alt="Elisa Volpi, IP attorney and content creator, standing confidently with her laptop" width="1200" height="2135" loading="lazy">
@@ -77,7 +77,7 @@ include __DIR__ . "/includes/head.php";
         <div>
           <h2>Sharing the stage, sharing the knowledge</h2>
           <p>From the EUIPO stage to university classrooms to your meeting room: the cases change, the mission doesn't. Make the legal side of the digital world clear enough, so you can use it to your advantage.</p>
-          <a class="btn btn-outline" href="Training.php">See the trainings</a>
+          <a class="btn btn-outline" href="/training">See the trainings</a>
         </div>
       </div>
     </section>
@@ -88,7 +88,7 @@ include __DIR__ . "/includes/head.php";
         <div class="cta-banner reveal">
           <h2>Let's talk about your situation</h2>
           <p>A first intake call is free – twenty minutes to see where you stand and what you need.</p>
-          <a class="btn btn-primary" href="Contact.php">Book a call</a>
+          <a class="btn btn-primary" href="/contact">Book a call</a>
         </div>
       </div>
     </section>

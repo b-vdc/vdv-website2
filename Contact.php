@@ -79,7 +79,7 @@ include __DIR__ . "/includes/head.php";
 
             <button type="submit" class="btn btn-primary">Send message</button>
 
-            <p class="form-recaptcha-note">This form is protected by reCAPTCHA. The <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply. See our <a href="Privacy-Policy.php">privacy policy</a> for how your message is used.</p>
+            <p class="form-recaptcha-note">This form is protected by reCAPTCHA. The <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply. See our <a href="/privacy-policy">privacy policy</a> for how your message is used.</p>
 
             <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
           </form>

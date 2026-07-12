@@ -16,7 +16,7 @@ include __DIR__ . "/includes/head.php";
           <h1>Trainings</h1>
           <p class="lead">Your practical legal guide in a digital-first world. Sessions built on real cases, so your team knows the rules before the campaign goes live, not after.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="Contact.php">Book your training</a>
+            <a class="btn btn-primary" href="/contact">Book your training</a>
           </div>
         </div>
         <div class="hero-media">
@@ -129,7 +129,7 @@ include __DIR__ . "/includes/head.php";
         <div class="cta-banner reveal">
           <h2>Ready to book a training?</h2>
           <p>Tell me about your team and I'll suggest the track that fits. An intro call is free.</p>
-          <a class="btn btn-primary" href="Contact.php">Get in touch</a>
+          <a class="btn btn-primary" href="/contact">Get in touch</a>
         </div>
       </div>
     </section>

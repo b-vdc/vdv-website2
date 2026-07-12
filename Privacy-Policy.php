@@ -14,7 +14,7 @@ include __DIR__ . "/includes/head.php";
         <h1>Privacy Policy</h1>
 
         <h4>Who is responsible for your data?</h4>
-        <p>Van der Volpi<br>You can find all the ways to contact us on the <a href="Contact.php">contact page</a>.</p>
+        <p>Van der Volpi<br>You can find all the ways to contact us on the <a href="/contact">contact page</a>.</p>
 
         <h4>What personal data do we collect?</h4>
         <p>We only collect personal data when you:</p>
@@ -50,7 +50,7 @@ include __DIR__ . "/includes/head.php";
         <p>We store your information to manage your requests and assist with any future questions. We generally keep your data for up to 3 years, but only as long as necessary, and you can ask us to have it deleted at any time.</p>
 
         <h4>Who has access to your data?</h4>
-        <p>Your data is not sold or shared with third parties, unless required by law or necessary to run the website. Contact form submissions are processed on our own server and delivered to our Google Workspace mailbox; Google reCAPTCHA checks submissions for spam. See our <a href="Cookie-Policy.php">cookie policy</a> for details.</p>
+        <p>Your data is not sold or shared with third parties, unless required by law or necessary to run the website. Contact form submissions are processed on our own server and delivered to our Google Workspace mailbox; Google reCAPTCHA checks submissions for spam. See our <a href="/cookie-policy">cookie policy</a> for details.</p>
 
         <h4>Your rights</h4>
         <p>You have the right to:</p>

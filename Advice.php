@@ -16,7 +16,7 @@ include __DIR__ . "/includes/head.php";
           <h1>Your brand is one of your most valuable assets</h1>
           <p class="lead">Let me help you protect it. Hands-on support in three areas: <a href="#intellectual-property">intellectual property</a>, <a href="#contracts">contracts</a> and <a href="#social-media">social media</a>.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="Contact.php">Book a call</a>
+            <a class="btn btn-primary" href="/contact">Book a call</a>
           </div>
         </div>
         <div class="hero-media">
@@ -127,7 +127,7 @@ include __DIR__ . "/includes/head.php";
         <div class="cta-banner reveal">
           <h2>Not sure which one you need?</h2>
           <p>That's what the intake call is for. Twenty minutes, free, and you'll leave knowing your next step.</p>
-          <a class="btn btn-primary" href="Contact.php">Book a call</a>
+          <a class="btn btn-primary" href="/contact">Book a call</a>
         </div>
       </div>
     </section>
