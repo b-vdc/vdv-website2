@@ -3,7 +3,7 @@ $title = "Contact – Van der Volpi";
 $description = "Get in touch with Van der Volpi: book a call, ask a question or plan a training. Based in Ghent, working with brands and creators everywhere.";
 $ogDescription = "Get in touch: book a call, ask a question or plan a training.";
 $active = "Contact";
-$pageScripts = ["js/contact.js"];
+$pageScripts = ["js/contact.js", "js/booking.js"];
 include __DIR__ . "/includes/head.php";
 ?>
 
@@ -97,30 +97,75 @@ include __DIR__ . "/includes/head.php";
       <div class="container">
         <div class="section-head reveal">
           <h2>Or book a call</h2>
-          <p>Three kinds of calls, depending on what you need.</p>
+          <p>Three kinds of calls, depending on what you need. Pick one to see when I'm available.</p>
         </div>
         <div class="reveal">
-          <div class="call-types">
-            <div class="call-type">
+          <div class="call-types" id="booking-types">
+            <button type="button" class="call-type" data-type="intake" aria-pressed="false">
               <h4>Intake call</h4>
               <p class="price">Free – 20 minutes</p>
               <p>A first conversation to look at your situation and figure out the next step. No strings attached.</p>
-            </div>
-            <div class="call-type">
+            </button>
+            <button type="button" class="call-type" data-type="training" aria-pressed="false">
               <h4>Training booking</h4>
               <p class="price">Free</p>
               <p>Planning a training for your team, agency or class? We'll pick the track, the format and a date.</p>
-            </div>
-            <div class="call-type">
+            </button>
+            <button type="button" class="call-type" data-type="legal" aria-pressed="false">
               <h4>Legal session</h4>
               <p class="price">&euro;170/hour</p>
               <p>A working session on your specific case. Charged per started 15 minutes, with a 30-minute minimum.</p>
-            </div>
+            </button>
           </div>
-          <div class="placeholder-block">
-            <span class="placeholder-badge">Placeholder – online booking</span>
-            <h4>The appointment maker lands here</h4>
-            <p>Online scheduling (pick a date and time straight from my calendar) is planned for a next version. Until then, <a href="mailto:info@vandervolpi.com">email me</a> or call <a href="tel:+32474055052">+32 474 055 052</a> and we'll set a time the old-fashioned way.</p>
+
+          <div id="booker" class="form-card booker" hidden>
+            <div id="booking-picker">
+              <h4>Pick a date and time</h4>
+              <p class="booker-note">All times are Brussels time.</p>
+              <div class="booker-grid">
+                <div class="booker-days" id="booking-days"></div>
+                <div class="booker-times" id="booking-times"></div>
+              </div>
+            </div>
+
+            <form id="booking-form" class="booking-form" novalidate hidden>
+              <p class="booker-summary" id="booking-summary"></p>
+              <div class="form-field">
+                <label for="bk-name">Name</label>
+                <input type="text" id="bk-name" name="name" autocomplete="name" required maxlength="120">
+              </div>
+              <div class="form-field">
+                <label for="bk-email">Email</label>
+                <input type="email" id="bk-email" name="email" autocomplete="email" required maxlength="180">
+              </div>
+              <div class="form-field">
+                <label for="bk-phone">Phone</label>
+                <input type="tel" id="bk-phone" name="phone" autocomplete="tel" required maxlength="40">
+              </div>
+              <div class="form-field">
+                <label for="bk-message">What would you like to discuss? (optional)</label>
+                <textarea id="bk-message" name="message" rows="3" maxlength="2000"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Confirm booking</button>
+
+              <p class="form-recaptcha-note">This form is protected by reCAPTCHA. The <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply. See our <a href="/privacy-policy">privacy policy</a> for how your booking is used.</p>
+            </form>
+
+            <div id="booking-status" class="form-status" role="status" aria-live="polite"></div>
+
+            <div id="booking-consent-gate" class="consent-gate" hidden>
+              <p>To protect bookings from spam, confirming needs Google reCAPTCHA, which needs your consent first.</p>
+              <button type="button" id="booking-consent-accept" class="btn btn-outline">Accept and continue</button>
+              <p class="meta-note">Prefer not to? Email me at <a href="mailto:info@vandervolpi.com">info@vandervolpi.com</a> or call <a href="tel:+32474055052">+32 474 055 052</a>.</p>
+            </div>
+
+            <div id="booking-success" class="booking-success" hidden>
+              <h4>Booked, see you then</h4>
+              <p id="booking-success-summary"></p>
+              <p id="booking-success-meet"></p>
+              <p>You'll get a confirmation email and a Google Calendar invite shortly. Need to move the call? Just reply to the confirmation email.</p>
+            </div>
           </div>
         </div>
       </div>

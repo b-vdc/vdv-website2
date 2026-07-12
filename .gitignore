@@ -5,5 +5,7 @@ Thumbs.db
 # Contact form secrets (see config.example.php) — never committed, created on the server
 config.php
 
-# Contact form rate-limit bookkeeping (created at runtime)
-data/
+# Runtime storage (rate-limit bookkeeping, Google token cache, booking locks).
+# The .htaccess stays committed so none of it is ever web-readable.
+data/*
+!data/.htaccess

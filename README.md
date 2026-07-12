@@ -14,7 +14,13 @@ Pages are `.php`: the header, footer and `<head>` boilerplate live once in `incl
 | `Training.php` | Trainings: audiences, topics, the four tracks |
 | `Advice.php` | Legal support for brands and creators (social media, IP, contracts) |
 | `About.php` | About Elisa + brand values |
-| `Contact.php` | Contact details; **placeholders** for the contact form and online booking (v1 ships without them) |
+| `Contact.php` | Contact details, the contact form and the appointment booker |
+| `contact-submit.php` | JSON endpoint for the contact form (reCAPTCHA v3 + PHPMailer, see `config.example.php`) |
+| `booking-slots.php` | JSON endpoint: available booking slots (configured schedule minus Google Calendar busy times) |
+| `booking-submit.php` | JSON endpoint: books a slot – creates the Google Calendar event (visitor invited, Meet link) and sends the confirmation emails |
+| `includes/form-helpers.php` | Shared endpoint helpers: rate limiting, HTTP, reCAPTCHA verify, mailer |
+| `includes/booking-lib.php` | Slot computation (weekdays, window, lead time, horizon, buffer) |
+| `includes/google-calendar.php` | Minimal Google Calendar client (service account, freeBusy, event insert) – setup in [BOOKING-SETUP.md](BOOKING-SETUP.md) |
 | `Privacy-Policy.php` · `Cookie-Policy.php` · `Disclaimer.php` | Legal pages (text carried over from v1) |
 | `Social-Media-Rules.html` · `Intellectual-Property.html` · `Contracts.html` | Redirect stubs – these v1 pages merged into `Advice.php`. Plain static HTML (no shared markup, so no need for PHP) |
 | `.htaccess` | Apache rewrite rules: serves clean lowercase URLs (`/about`) from the `.php` files and 301-redirects the old `.php`/capitalised URLs |
@@ -24,6 +30,8 @@ Pages are `.php`: the header, footer and `<head>` boilerplate live once in `incl
 | `includes/footer.php` | Shared site footer, plus the closing `<script>`/`</body>`/`</html>` |
 | `css/style.css` | Full design system (brandbook tokens, speech bubbles, layout) |
 | `js/main.js` | Mobile nav, scroll reveals, footer year (vanilla JS) |
+| `js/consent.js` | Cookie consent banner + reCAPTCHA loader |
+| `js/contact.js` · `js/booking.js` | Contact form and appointment booker behavior (Contact page only) |
 | `images/` | Photos + generated placeholder images |
 
 ## Conventions
@@ -43,3 +51,5 @@ php -S localhost:8123 router.php
 ```
 
 then open http://localhost:8123. The `router.php` argument is required for the clean-URL routing; without it the built-in server ignores `.htaccess` and only the raw `.php` paths would resolve. A plain static server (e.g. `python -m http.server`) will not execute the `.php` pages – it will only serve their raw source.
+
+The contact form and booker need `config.php` (copy `config.example.php`) and `composer install`. For local testing without real keys set `recaptcha_disable` and `booking_disable_google` to `true`. Deploying the booker for real requires the one-time Google setup in [BOOKING-SETUP.md](BOOKING-SETUP.md).
