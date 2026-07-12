@@ -20,7 +20,8 @@ Pages are `.php`: the header, footer and `<head>` boilerplate live once in `incl
 | `booking-submit.php` | JSON endpoint: books a slot – creates the Google Calendar event (visitor invited, Meet link) and sends the confirmation emails |
 | `includes/form-helpers.php` | Shared endpoint helpers: rate limiting, HTTP, reCAPTCHA verify, mailer |
 | `includes/booking-lib.php` | Slot computation (weekdays, window, lead time, horizon, buffer) |
-| `includes/google-calendar.php` | Minimal Google Calendar client (service account, freeBusy, event insert) – setup in [BOOKING-SETUP.md](BOOKING-SETUP.md) |
+| `includes/google-calendar.php` | Minimal Google Calendar client (OAuth refresh token, freeBusy, event insert) – setup in [BOOKING-SETUP.md](BOOKING-SETUP.md) |
+| `tools/google-oauth-consent.php` | One-time local helper that produces the booker's Google refresh token (loopback-only) |
 | `Privacy-Policy.php` · `Cookie-Policy.php` · `Disclaimer.php` | Legal pages (text carried over from v1) |
 | `Social-Media-Rules.html` · `Intellectual-Property.html` · `Contracts.html` | Redirect stubs – these v1 pages merged into `Advice.php`. Plain static HTML (no shared markup, so no need for PHP) |
 | `.htaccess` | Apache rewrite rules: serves clean lowercase URLs (`/about`) from the `.php` files and 301-redirects the old `.php`/capitalised URLs |

@@ -36,11 +36,9 @@ return [
 
     // ---- Appointment booker (see BOOKING-SETUP.md) -----------------------
 
-    // Calendar that availability is read from and events are created on,
-    // and the Workspace user the service account acts as. Usually the same
-    // mailbox for both.
+    // Calendar that availability is read from and events are created on
+    // (the calendar owner is whoever approved the OAuth consent below).
     'booking_calendar_id' => 'info@vandervolpi.com',
-    'booking_impersonate' => 'info@vandervolpi.com',
 
     // When appointments can be booked: ISO weekdays (Mon=1 .. Sun=7), the
     // daily window, how many hours ahead a booking must be made, and how
@@ -63,16 +61,14 @@ return [
         'legal'    => ['label' => 'Legal session',    'duration' => 60, 'price' => '€170/hour'],
     ],
 
-    // Service account with domain-wide delegation for the scopes
-    // https://www.googleapis.com/auth/calendar.events and
-    // https://www.googleapis.com/auth/calendar.freebusy.
-    // Paste the decoded contents of the downloaded JSON key file here
-    // (BOOKING-SETUP.md walks through creating it). The three keys below
-    // are the ones the booker uses; keeping the rest of the JSON is fine.
-    'google_service_account' => [
-        'client_email' => 'REPLACE@REPLACE.iam.gserviceaccount.com',
-        'private_key'  => "-----BEGIN PRIVATE KEY-----\nREPLACE\n-----END PRIVATE KEY-----\n",
-        'token_uri'    => 'https://oauth2.googleapis.com/token',
+    // OAuth client + refresh token for the calendar owner, limited to the
+    // calendar.events and calendar.freebusy scopes. BOOKING-SETUP.md walks
+    // through creating the client and tools/google-oauth-consent.php is the
+    // one-time consent flow that produces the refresh token.
+    'google_oauth' => [
+        'client_id'     => 'REPLACE.apps.googleusercontent.com',
+        'client_secret' => 'REPLACE',
+        'refresh_token' => 'REPLACE',
     ],
 
     // Set to true only for local testing without Google credentials: the

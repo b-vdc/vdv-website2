@@ -2,51 +2,55 @@
 /**
  * Minimal Google Calendar client for the appointment booker.
  *
- * Talks to the Calendar REST API directly with a service-account JWT
- * (domain-wide delegation, impersonating the Workspace user in
- * booking_impersonate) instead of pulling in google/apiclient. Only three
- * calls are needed: token exchange, freeBusy.query and events.insert.
+ * Talks to the Calendar REST API directly instead of pulling in
+ * google/apiclient. Only three calls are needed: token refresh,
+ * freeBusy.query and events.insert.
  *
- * The service-account key lives in config.php under 'google_service_account'
- * (the decoded contents of the JSON key file). Set 'booking_disable_google'
- * to true for local testing: availability then acts as a fully free
- * calendar and event creation is logged instead of executed.
+ * Auth is a plain OAuth refresh token for the calendar owner (the org
+ * policy on the Workspace blocks service-account keys). config.php holds
+ * 'google_oauth' => [client_id, client_secret, refresh_token]; the one-time
+ * consent flow that produces the refresh token is tools/google-oauth-consent.php
+ * (walkthrough in BOOKING-SETUP.md).
+ *
+ * Set 'booking_disable_google' to true for local testing: availability then
+ * acts as a fully free calendar and event creation is logged instead of
+ * executed.
  *
  * Requires includes/form-helpers.php for vdvPostForm / vdvHttpJson.
  */
 
 declare(strict_types=1);
 
+// Requested at consent time; the refresh token can never reach beyond these.
 const VDV_GOOGLE_SCOPES = 'https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar.freebusy';
 
 function vdvGoogleCredentials(array $config): ?array
 {
-    $credentials = $config['google_service_account'] ?? null;
-    if (!is_array($credentials)
-        || empty($credentials['client_email'])
-        || empty($credentials['private_key'])
+    $oauth = $config['google_oauth'] ?? null;
+    if (!is_array($oauth)
+        || empty($oauth['client_id'])
+        || empty($oauth['client_secret'])
+        || empty($oauth['refresh_token'])
     ) {
         return null;
     }
-    return $credentials;
-}
-
-function vdvGoogleBase64Url(string $data): string
-{
-    return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+    return $oauth;
 }
 
 /**
- * Get an access token for the impersonated user, cached in
+ * Get an access token for the calendar owner, cached in
  * data/google-token.json until shortly before expiry.
  */
 function vdvGoogleAccessToken(array $config): ?string
 {
     $credentials = vdvGoogleCredentials($config);
     if ($credentials === null) {
-        error_log('VDV booking: google_service_account is missing or incomplete in config.php');
+        error_log('VDV booking: google_oauth is missing or incomplete in config.php');
         return null;
     }
+
+    // Cache is only valid for the credentials that produced it.
+    $fingerprint = hash('sha256', $credentials['client_id'] . ':' . $credentials['refresh_token']);
 
     $cacheFile = dirname(__DIR__) . '/data/google-token.json';
     if (is_file($cacheFile)) {
@@ -54,41 +58,23 @@ function vdvGoogleAccessToken(array $config): ?string
         if (is_array($cached)
             && !empty($cached['token'])
             && ($cached['expires'] ?? 0) > time() + 60
-            && ($cached['sub'] ?? '') === $config['booking_impersonate']
+            && ($cached['fingerprint'] ?? '') === $fingerprint
         ) {
             return $cached['token'];
         }
     }
 
-    $tokenUri = $credentials['token_uri'] ?? 'https://oauth2.googleapis.com/token';
     $now      = time();
-
-    $claims = [
-        'iss'   => $credentials['client_email'],
-        'sub'   => $config['booking_impersonate'],
-        'scope' => VDV_GOOGLE_SCOPES,
-        'aud'   => $tokenUri,
-        'iat'   => $now,
-        'exp'   => $now + 3600,
-    ];
-
-    $signingInput = vdvGoogleBase64Url((string) json_encode(['alg' => 'RS256', 'typ' => 'JWT']))
-        . '.' . vdvGoogleBase64Url((string) json_encode($claims));
-
-    $signature = '';
-    if (!openssl_sign($signingInput, $signature, $credentials['private_key'], OPENSSL_ALGO_SHA256)) {
-        error_log('VDV booking: could not sign the Google JWT (check private_key in config.php)');
-        return null;
-    }
-
-    $response = vdvPostForm($tokenUri, [
-        'grant_type' => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-        'assertion'  => $signingInput . '.' . vdvGoogleBase64Url($signature),
+    $response = vdvPostForm('https://oauth2.googleapis.com/token', [
+        'grant_type'    => 'refresh_token',
+        'client_id'     => $credentials['client_id'],
+        'client_secret' => $credentials['client_secret'],
+        'refresh_token' => $credentials['refresh_token'],
     ]);
 
     $token = $response['access_token'] ?? null;
     if (!is_string($token) || $token === '') {
-        error_log('VDV booking: Google token exchange failed: ' . json_encode($response));
+        error_log('VDV booking: Google token refresh failed: ' . json_encode($response));
         return null;
     }
 
@@ -97,9 +83,9 @@ function vdvGoogleAccessToken(array $config): ?string
         @mkdir($dataDir, 0700, true);
     }
     @file_put_contents($cacheFile, json_encode([
-        'token'   => $token,
-        'expires' => $now + (int) ($response['expires_in'] ?? 3600),
-        'sub'     => $config['booking_impersonate'],
+        'token'       => $token,
+        'expires'     => $now + (int) ($response['expires_in'] ?? 3600),
+        'fingerprint' => $fingerprint,
     ]));
 
     return $token;

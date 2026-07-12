@@ -1,47 +1,56 @@
 # Appointment booker setup
 
 The booker on the Contact page reads availability from the Google Calendar of
-`info@vandervolpi.com` and creates events on it. For that it needs a Google
-Cloud **service account** that is allowed to act on behalf of that mailbox
-(domain-wide delegation). One-time setup, roughly 15 minutes.
+`info@vandervolpi.com` and creates events on it. It authenticates with a
+plain OAuth refresh token for that account (the Workspace organization policy
+blocks service-account keys, so the earlier service-account approach is out).
+One-time setup, roughly 15 minutes, all as `info@vandervolpi.com`.
 
-## 1. Google Cloud: service account + key
+## 1. Google Cloud: project + Calendar API + consent screen
 
 1. Go to [console.cloud.google.com](https://console.cloud.google.com) and sign
    in as `info@vandervolpi.com`. Create a project (e.g. `vdv-website`) or reuse
    an existing one.
 2. **APIs & Services > Library**: search for **Google Calendar API** and enable it.
-3. **IAM & Admin > Service Accounts > Create service account**. Name it e.g.
-   `vdv-booking`. No roles or user access needed; just create it.
-4. Open the new service account and note two things:
-   - the **email** (`vdv-booking@...iam.gserviceaccount.com`)
-   - the **Unique ID** (a long number; this is the client ID you need in step 2)
-5. Tab **Keys > Add key > Create new key > JSON**. A `.json` file downloads.
-   Treat it like a password.
+3. **APIs & Services > OAuth consent screen** (newer consoles call it
+   **Google Auth Platform > Branding/Audience**): configure it with app name
+   e.g. `VDV booking`, your email as support/contact, and audience/user type
+   **Internal**. Internal means only your Workspace can use it, nothing needs
+   Google review, and the refresh token does not expire.
 
-## 2. Workspace Admin: allow the service account to act as you
+## 2. Create the OAuth client
 
-1. Go to [admin.google.com](https://admin.google.com) (Workspace admin console).
-2. **Security > Access and data control > API controls > Manage domain-wide
-   delegation > Add new**.
-3. **Client ID**: the Unique ID from step 1.4.
-4. **OAuth scopes** (comma separated, exactly these two):
+1. **APIs & Services > Credentials > Create credentials > OAuth client ID**.
+2. Application type **Web application**, name e.g. `vdv-booking`.
+3. Under **Authorized redirect URIs** add exactly:
 
    ```
-   https://www.googleapis.com/auth/calendar.events,https://www.googleapis.com/auth/calendar.freebusy
+   http://localhost:8765/callback
    ```
 
-5. Authorise. These scopes only allow reading free/busy times and managing
-   calendar events; the service account cannot read mail or anything else.
+   (Only used once, by the local consent helper in the next step.)
+4. Create, then copy the **Client ID** and **Client secret** into the
+   `google_oauth` array in `config.php` (see `config.example.php` for the shape).
 
-## 3. config.php on the server
+## 3. Get the refresh token (one-time, on your own machine)
 
-Open the downloaded JSON key file in a text editor and copy its values into
-the `google_service_account` array in `config.php` (see `config.example.php`
-for the shape). The booker needs `client_email`, `private_key` and
-`token_uri`; copying the whole file's fields is also fine.
+In a checkout of this repo with the `config.php` from step 2.4 present:
 
-Check the rest of the booking settings while you're there:
+```
+php -S localhost:8765 tools/google-oauth-consent.php
+```
+
+Open [http://localhost:8765](http://localhost:8765) in a browser, sign in as
+`info@vandervolpi.com` and approve the two calendar permissions. The page then
+shows the `refresh_token` line to paste into `google_oauth` in `config.php`.
+Stop the helper with Ctrl+C.
+
+Put the completed `google_oauth` values (client id, secret, refresh token)
+into `config.php` **on the server** too. The token only allows managing
+calendar events and reading free/busy times; you can revoke it any time at
+[myaccount.google.com/connections](https://myaccount.google.com/connections).
+
+## 4. Booking settings in config.php
 
 | Key | Meaning | Default |
 | --- | --- | --- |
@@ -54,7 +63,7 @@ Check the rest of the booking settings while you're there:
 
 Make sure `booking_disable_google` and `recaptcha_disable` are `false`.
 
-## 4. Smoke test
+## 5. Smoke test
 
 1. On the live Contact page, pick a call type. Available days and times should
    appear; days that are fully booked in the calendar are grayed out.
@@ -73,11 +82,17 @@ Make sure `booking_disable_google` and `recaptcha_disable` are `false`.
 ## Troubleshooting
 
 - **"Could not load availability right now"**: the server could not reach the
-  Calendar API. Check the PHP error log; the most common causes are a wrong
-  `private_key` in config.php (must keep its `\n` line breaks) or the
-  domain-wide delegation client ID/scopes not matching step 2 exactly.
-- **Slots show, booking fails**: same log; if the event insert is rejected
-  check that the Calendar API is enabled and `booking_calendar_id` is right.
+  Calendar API. Check the PHP error log. `invalid_grant` there means the
+  refresh token was revoked or belongs to a different client id/secret pair;
+  redo step 3.
+- **`redirect_uri_mismatch` during step 3**: the redirect URI in the OAuth
+  client does not exactly match `http://localhost:8765/callback`.
+- **Consent shows but no refresh token comes back**: make sure you went
+  through `tools/google-oauth-consent.php` (it forces `prompt=consent`), not
+  a leftover browser session.
+- **Slots show, booking fails**: check the error log; if the event insert is
+  rejected, confirm the Calendar API is enabled and `booking_calendar_id` is
+  right.
 - Bookings are calendar events, nothing more: to cancel one, delete the event
   in Google Calendar (Google emails the visitor), and the slot frees up
   automatically.

@@ -21,7 +21,6 @@ function vdvBookingConfig(array $config): array
 {
     $defaults = [
         'booking_calendar_id'    => 'info@vandervolpi.com',
-        'booking_impersonate'    => 'info@vandervolpi.com',
         'booking_timezone'       => 'Europe/Brussels',
         'booking_days'           => [1, 2, 3, 4, 5], // ISO weekdays, Mon=1
         'booking_window_start'   => '09:00',
