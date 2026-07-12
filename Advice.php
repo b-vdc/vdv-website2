@@ -33,7 +33,7 @@ include __DIR__ . "/includes/head.php";
         <div class="section-head reveal">
           <h2>Intellectual property</h2>
           <p class="subhead">Create boldly. Protect wisely.</p>
-          <p>Your name, your designs, your content – protecting them shouldn't come as an afterthought. I help you build protection into the way you work.</p>
+          <p>Your name, your designs, your content: protecting them shouldn't come as an afterthought.</p>
         </div>
         <div class="card-grid reveal">
           <article class="card">
@@ -48,7 +48,7 @@ include __DIR__ . "/includes/head.php";
           <article class="card">
             <h3>For creators</h3>
             <ul class="check-list">
-              <li>Understanding what you own – and what you've licensed away</li>
+              <li>Understanding what you own and what you can license</li>
               <li>The IP risks hiding in music, memes and AI tools</li>
               <li>Licensing support for brand deals</li>
               <li>Keeping ownership of your work in collaboration agreements</li>
@@ -64,7 +64,7 @@ include __DIR__ . "/includes/head.php";
         <div class="section-head reveal">
           <h2>Contracts</h2>
           <p class="subhead">A clear contract today avoids conflict tomorrow.</p>
-          <p>Most legal problems on social media blow up because nobody clarified the rules upfront. A good contract is that clarification – in writing.</p>
+          <p>Most legal problems on social media blow up because nobody clarified the rules upfront.</p>
         </div>
         <div class="card-grid reveal">
           <article class="card">
@@ -81,7 +81,7 @@ include __DIR__ . "/includes/head.php";
             <ul class="check-list">
               <li>Support with brand and agency collaboration contracts</li>
               <li>Guidance on content ownership and licensing terms</li>
-              <li>Negotiating fair terms – payment, deliverables, revisions</li>
+              <li>Negotiating fair terms: payment, deliverables, revisions</li>
               <li>Understanding your obligations and exclusivity clauses</li>
             </ul>
           </article>
@@ -95,7 +95,7 @@ include __DIR__ . "/includes/head.php";
         <div class="section-head reveal">
           <h2>Social media</h2>
           <p class="subhead">Creating content takes skill. Staying in control takes strategy.</p>
-          <p>Influencer marketing, brand-creator partnerships, reposting, disclosure tags – the everyday stuff of social media all has a legal side. Here's a few examples of how I can help.</p>
+          <p>Influencer marketing, brand-creator partnerships, reposting, disclosure tags: the everyday stuff of social media all has a legal side. Here's a few examples of how I can help.</p>
         </div>
         <div class="card-grid reveal">
           <article class="card">
@@ -111,7 +111,7 @@ include __DIR__ . "/includes/head.php";
           <article class="card">
             <h3>For creators</h3>
             <ul class="check-list">
-              <li>Navigating disclosure rules – what to tag, when and how</li>
+              <li>Navigating disclosure rules: what to tag, when and how</li>
               <li>Understanding what happens to your content after you post it</li>
               <li>Negotiating agreements before you sign them</li>
               <li>Knowing your licenses and usage rights inside out</li>
