@@ -649,16 +649,6 @@ figcaption {
   box-shadow: 0 0 0 3px var(--vdv-orange-80);
 }
 
-/* Honeypot: stays in the DOM/tab flow (so it still catches auto-fill bots)
-   but is never visible or reachable for real visitors. */
-.hp-field {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 .form-recaptcha-note {
   font-size: 0.82rem;
   color: var(--vdv-eggplant);

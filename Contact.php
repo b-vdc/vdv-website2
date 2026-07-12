@@ -77,11 +77,6 @@ include __DIR__ . "/includes/head.php";
               <textarea id="cf-message" name="message" rows="5" required maxlength="5000"></textarea>
             </div>
 
-            <div class="form-field hp-field" aria-hidden="true">
-              <label for="cf-company">Company</label>
-              <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off">
-            </div>
-
             <button type="submit" class="btn btn-primary">Send message</button>
 
             <p class="form-recaptcha-note">This form is protected by reCAPTCHA. The <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply. See our <a href="Privacy-Policy.php">privacy policy</a> for how your message is used.</p>

@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     data.set("name", form.elements["name"].value);
     data.set("email", form.elements["email"].value);
     data.set("message", form.elements["message"].value);
-    data.set("company", form.elements["company"].value); // honeypot, always blank for real visitors
     data.set("recaptcha_token", token || "");
 
     return fetch("contact-submit.php", {
@@ -70,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(sendMessage)
       .then(function (result) {
         if (result && result.ok) {
-          setStatus("Thanks, your message is on its way.", "success");
+          setStatus("Thanks, your message is on its way. You'll receive a confirmation email shortly.", "success");
           form.reset();
         } else {
           setStatus(

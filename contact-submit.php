@@ -2,8 +2,8 @@
 /**
  * Contact form endpoint for vandervolpi.com.
  *
- * Receives the Contact page form (name, email, message, plus a honeypot
- * field and a reCAPTCHA v3 token), verifies it, then sends two emails
+ * Receives the Contact page form (name, email, message, plus a
+ * reCAPTCHA v3 token), verifies it, then sends two emails
  * through the info@vandervolpi.com Google Workspace mailbox: a
  * notification to Van der Volpi and a confirmation to the person who
  * wrote in.
@@ -81,15 +81,6 @@ function vdvRateLimited(string $ip): bool
 if (vdvRateLimited($ip)) {
     http_response_code(429);
     echo json_encode(['ok' => false, 'error' => 'Too many messages sent from this connection. Please try again later.']);
-    exit;
-}
-
-// ---- Honeypot -----------------------------------------------------------
-// Bots that auto-fill every field trip this hidden one; real visitors never
-// see it. Reply with a fake success so bots don't learn to skip it.
-
-if (!empty($_POST['company'])) {
-    echo json_encode(['ok' => true]);
     exit;
 }
 
@@ -239,10 +230,10 @@ try {
     $confirm->isHTML(true);
     $confirm->Subject = 'Thanks for reaching out to Van der Volpi';
     $confirm->Body    = "<p>Hi {$safeName},</p>"
-        . "<p>Thanks for your message. It has reached me and I read and answer everything myself, usually within one or two working days.</p>"
+        . "<p>Thanks for your message. It has reached me and I will get back to you within 48 hours.</p>"
         . "<p><strong>What you sent:</strong></p><p>{$safeMessage}</p>"
         . "<p>Talk soon,<br>Elisa</p>";
-    $confirm->AltBody = "Hi {$name},\n\nThanks for your message. It has reached me and I read and answer everything myself, usually within one or two working days.\n\nWhat you sent:\n{$message}\n\nTalk soon,\nElisa";
+    $confirm->AltBody = "Hi {$name},\n\nThanks for your message. It has reached me and I will get back to you within 48 hours.\n\nWhat you sent:\n{$message}\n\nTalk soon,\nElisa";
     $confirm->send();
 } catch (PHPMailerException $e) {
     error_log('VDV contact form confirmation email failed: ' . $e->getMessage());
