@@ -29,9 +29,9 @@ include __DIR__ . "/includes/head.php";
       <div class="container split reveal">
         <div>
           <h2>Why I do this</h2>
-          <p>By profession I'm an IP attorney. By passion I'm the creator behind <a href="https://www.instagram.com/italiansinbelgium/" target="_blank" rel="noopener">@italiansinbelgium</a>. So when we talk about a collab gone wrong or a repost without credit, I'm not translating from theory: I've drafted the contracts <em>and</em> posted the content.</p>
-          <p>I work with businesses, agencies and creators through workshops, trainings and hands-on legal support. The goal is always the same: your team makes smarter, safer decisions about content, collaborations and campaigns, and avoids the expensive mistakes.</p>
-          <p>Legal isn't the brake. Used well, it's the strategy.</p>
+          <p>I'm an IP attorney and a content creator myself (<a href="https://www.instagram.com/italiansinbelgium/" target="_blank" rel="noopener">@italiansinbelgium</a>), so I understand both the rules and the reality of building brands and content online.</p>
+          <p>I work with businesses, agencies and creators through workshops, trainings and hands-on legal support. The goal is always the same: your team makes smarter and safer decisions about content, collaborations and campaigns, while avoiding expensive mistakes.</p>
+          <p>Legal isn't the brake. When used well, it's part of the strategy.</p>
           <a class="btn btn-primary" href="Contact.php">Book a call</a>
         </div>
         <figure class="split-media">
@@ -61,7 +61,7 @@ include __DIR__ . "/includes/head.php";
           </article>
           <article class="card">
             <h3>Strategy first</h3>
-            <p>"Legally fine" isn't the bar. I help you build campaigns that are protected <em>and</em> ambitious – the law is a map of where the real opportunities are.</p>
+            <p>"Legally fine" isn't the bar. I help you making sure your campaigns can remain creative, while also being bulletproof.</p>
           </article>
         </div>
       </div>
@@ -76,7 +76,7 @@ include __DIR__ . "/includes/head.php";
         </figure>
         <div>
           <h2>Sharing the stage, sharing the knowledge</h2>
-          <p>From the EUIPO stage to university classrooms to your meeting room: the cases change, the mission doesn't. Make the legal side of the digital world clear enough that you can act on it.</p>
+          <p>From the EUIPO stage to university classrooms to your meeting room: the cases change, the mission doesn't. Make the legal side of the digital world clear enough, so you can use it to your advantage.</p>
           <a class="btn btn-outline" href="Training.php">See the trainings</a>
         </div>
       </div>
