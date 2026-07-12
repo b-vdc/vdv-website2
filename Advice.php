@@ -21,7 +21,7 @@ include __DIR__ . "/includes/head.php";
         </div>
         <div class="hero-media">
           <div class="hero-portrait">
-            <img src="images/advice.jpg" alt="Elisa Volpi in conversation across the table, explaining a point with her laptop open" width="1000" height="1200">
+            <img src="images/advice.jpg" alt="Three people in conversation around a small table at a networking event, seen from above, with a laptop and papers between them" width="949" height="1068">
           </div>
         </div>
       </div>
