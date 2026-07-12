@@ -14,7 +14,7 @@ include __DIR__ . "/includes/head.php";
       <div class="container hero-split">
         <div class="hero-inner">
           <h1>Trainings</h1>
-          <p class="lead">Your practical legal guide in a digital-first world. Sessions built on real cases – so your team knows the rules before the campaign goes live, not after.</p>
+          <p class="lead">Your practical legal guide in a digital-first world. Sessions built on real cases, so your team knows the rules before the campaign goes live, not after.</p>
           <div class="hero-ctas">
             <a class="btn btn-primary" href="Contact.php">Book your training</a>
           </div>
@@ -47,14 +47,14 @@ include __DIR__ . "/includes/head.php";
               <circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 15.4c.5-.2 1-.4 1.5-.4 2.3 0 4 1.6 4 4"/>
             </svg>
             <h3>Agencies</h3>
-            <p>Train your account teams and the creators you work with, so every collaboration starts from the same clear ground rules – usage rights included.</p>
+            <p>Train your account teams and the creators you work with, so every collaboration starts from the same clear ground rules, usage rights included.</p>
           </article>
           <article class="card card-orange80">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 4L2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v5"/>
             </svg>
             <h3>Universities &amp; programs</h3>
-            <p>Guest lectures and modules for marketing, communication and media students – the legal reflexes they'll need from their very first internship.</p>
+            <p>Guest lectures and modules for marketing, communication and media students: the legal reflexes they'll need from their very first internship.</p>
           </article>
         </div>
       </div>
@@ -103,21 +103,21 @@ include __DIR__ . "/includes/head.php";
               <path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.7 1.3 1.5 1.5 2.5h5c.2-1 .7-1.8 1.5-2.5A6 6 0 0 0 12 3z"/>
             </svg>
             <h3>Intellectual Property</h3>
-            <p>Trademarks, designs and brand strategy – plus who owns what when content, creators and AI get involved.</p>
+            <p>Trademarks, designs and brand strategy, plus who owns what when content, creators and AI get involved.</p>
           </article>
           <article class="card">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4"/><path d="M10 12h6M10 16h6"/><path d="M10 8h2"/>
             </svg>
             <h3>Contracts</h3>
-            <p>Collaboration agreements, licensing, confidentiality and usage rights – how to read them, and how to write them so they hold up.</p>
+            <p>Collaboration agreements, licensing, confidentiality and usage rights: how to read them, and how to write them so they hold up.</p>
           </article>
           <article class="card">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M9 6h6"/><circle cx="12" cy="14" r="3.2"/><path d="M12 12.2v1.8l1.2 1"/>
             </svg>
             <h3>Social Media</h3>
-            <p>The rules, laws and platform guidelines behind everyday posting – from disclosure tags to reposting someone else's content.</p>
+            <p>The rules, laws and platform guidelines behind everyday posting: from disclosure tags to reposting someone else's content.</p>
           </article>
         </div>
       </div>
