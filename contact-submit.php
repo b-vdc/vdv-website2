@@ -232,8 +232,8 @@ try {
     $confirm->Body    = "<p>Hi {$safeName},</p>"
         . "<p>Thanks for your message. It has reached me and I will get back to you within 48 hours.</p>"
         . "<p><strong>What you sent:</strong></p><p>{$safeMessage}</p>"
-        . "<p>Talk soon,<br>Elisa</p>";
-    $confirm->AltBody = "Hi {$name},\n\nThanks for your message. It has reached me and I will get back to you within 48 hours.\n\nWhat you sent:\n{$message}\n\nTalk soon,\nElisa";
+        . "<p>Talk to you soon,<br>Elisa</p>";
+    $confirm->AltBody = "Hi {$name},\n\nThanks for your message. It has reached me and I will get back to you within 48 hours.\n\nWhat you sent:\n{$message}\n\nTalk to you soon,\nElisa";
     $confirm->send();
 } catch (PHPMailerException $e) {
     error_log('VDV contact form confirmation email failed: ' . $e->getMessage());
