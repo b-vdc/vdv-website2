@@ -42,6 +42,10 @@
     </div>
   </footer>
 
+  <script src="js/consent.js"></script>
   <script src="js/main.js"></script>
+<?php if (!empty($pageScripts)): foreach ($pageScripts as $pageScript): ?>
+  <script src="<?= $pageScript ?>"></script>
+<?php endforeach; endif; ?>
 </body>
 </html>

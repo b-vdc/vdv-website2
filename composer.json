@@ -1,0 +1,9 @@
+{
+    "name": "vandervolpi/contact-form",
+    "description": "Server-side dependency for the vandervolpi.com contact form endpoint (contact.php).",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
