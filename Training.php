@@ -128,7 +128,7 @@ include __DIR__ . "/includes/head.php";
       <div class="container">
         <div class="cta-banner reveal">
           <h2>Ready to book a training?</h2>
-          <p>Tell me about your team and I'll suggest the track that fits. A short intro call is free.</p>
+          <p>Tell me about your team and I'll suggest the track that fits. An intro call is free.</p>
           <a class="btn btn-primary" href="Contact.php">Get in touch</a>
         </div>
       </div>
