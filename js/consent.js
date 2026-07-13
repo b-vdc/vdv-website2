@@ -25,12 +25,12 @@ function vdvSetConsent(value) {
   }
 }
 
-function vdvIsContactPage() {
-  return !!document.getElementById("contact-form");
+function vdvPageNeedsRecaptcha() {
+  return !!(document.getElementById("contact-form") || document.getElementById("booking-form"));
 }
 
 function vdvLoadRecaptcha() {
-  if (!vdvIsContactPage()) return;
+  if (!vdvPageNeedsRecaptcha()) return;
   if (document.getElementById("vdv-recaptcha-script")) return;
   var script = document.createElement("script");
   script.id = "vdv-recaptcha-script";
@@ -56,7 +56,7 @@ function vdvOpenConsentBanner() {
 
   var text = document.createElement("p");
   text.appendChild(document.createTextNode(
-    "This site uses Google reCAPTCHA to keep the contact form spam free. It only runs once you say yes. See our "
+    "This site uses Google reCAPTCHA to keep the contact and booking forms spam free. It only runs once you say yes. See our "
   ));
   var link = document.createElement("a");
   link.href = "/cookie-policy";

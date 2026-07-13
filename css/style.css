@@ -483,29 +483,63 @@ figcaption {
 .cta-banner .accent-i { color: var(--vdv-orange); }
 .cta-buttons { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
-/* ---- Placeholder feature blocks (form / booking to come) ---- */
-.placeholder-block {
-  position: relative;
-  border: 2px dashed var(--vdv-eggplant-40);
-  border-radius: var(--radius-card) var(--radius-card) var(--radius-card) 0;
-  padding: 40px 32px;
-  background: var(--vdv-eggplant-80);
+/* ---- Appointment booker ---- */
+/* The call-type cards double as the booker's type selector (buttons). */
+button.call-type {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, border-color 0.2s ease;
 }
-.placeholder-block p, .placeholder-block li, .placeholder-block h4 { color: var(--vdv-eggplant); }
-/* Pastel background: Eggplant text only (brandbook §4) – links included */
-.placeholder-block a:not(.btn) { color: var(--vdv-eggplant); font-weight: 600; text-decoration: underline; }
-.placeholder-badge {
-  position: absolute;
-  top: -14px;
-  left: 24px;
+button.call-type:hover { transform: translateY(-2px); border-color: var(--vdv-eggplant-40); }
+button.call-type[aria-pressed="true"] { border-color: var(--vdv-eggplant); }
+
+.booker { margin-top: 28px; }
+.booker-note { font-size: 0.9rem; }
+.booker-grid { display: grid; grid-template-columns: 240px 1fr; gap: 24px; margin-top: 18px; }
+.booker-days {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 4px;
+}
+.booker-times { display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; padding: 4px; }
+
+/* Time/date chips share the signature speech-bubble shape */
+.slot-chip {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--vdv-eggplant);
+  background: #fff;
+  border: 1.5px solid var(--vdv-eggplant-80);
+  border-radius: 999px 999px 999px 0;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.slot-chip:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--vdv-eggplant); }
+.slot-chip.is-selected {
   background: var(--vdv-eggplant);
   color: var(--vdv-offwhite);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 999px 999px 999px 0;
+  border-color: var(--vdv-eggplant);
+}
+.slot-chip:disabled { opacity: 0.45; cursor: not-allowed; }
+.day-chip { width: 100%; text-align: left; }
+
+.booking-form { margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--vdv-eggplant-40); }
+.booker-summary { font-weight: 600; margin-bottom: 18px; }
+.booker-retry { margin-left: 12px; padding: 8px 18px; font-size: 0.9rem; }
+.booking-success p { margin-bottom: 10px; }
+
+@media (max-width: 700px) {
+  .booker-grid { grid-template-columns: 1fr; }
+  .booker-days { flex-direction: row; flex-wrap: wrap; max-height: none; }
+  .day-chip { width: auto; }
 }
 
 /* ---- Pricing table (call types) ---- */
