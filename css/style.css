@@ -200,6 +200,16 @@ img { max-width: 100%; height: auto; display: block; }
 .btn:hover { text-decoration: none; transform: translateY(-2px); }
 .btn-primary { background: var(--vdv-orange); color: var(--vdv-offwhite); }
 .btn-primary:hover { background: var(--vdv-eggplant); color: var(--vdv-offwhite); }
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn:disabled:hover,
+.btn[disabled]:hover {
+  transform: none;
+  background: var(--vdv-orange);
+}
 .btn-outline {
   border: 2px solid var(--vdv-eggplant);
   color: var(--vdv-eggplant);
