@@ -69,7 +69,7 @@ function vdvOpenConsentBanner() {
 
   var acceptBtn = document.createElement("button");
   acceptBtn.type = "button";
-  acceptBtn.className = "btn btn-light";
+  acceptBtn.className = "btn btn-primary";
   acceptBtn.textContent = "Accept";
   acceptBtn.addEventListener("click", function () {
     vdvSetConsent("accepted");
@@ -79,7 +79,7 @@ function vdvOpenConsentBanner() {
 
   var declineBtn = document.createElement("button");
   declineBtn.type = "button";
-  declineBtn.className = "btn btn-outline-light";
+  declineBtn.className = "btn btn-outline";
   declineBtn.textContent = "Decline";
   declineBtn.addEventListener("click", function () {
     vdvSetConsent("declined");
