@@ -249,14 +249,14 @@ try {
         . "<p>You'll also get a calendar invite from Google. Accept it and you're set.</p>"
         . $rateNote
         . "<p>Need to move it? Reply to this email or call <a href=\"tel:+32474055052\">+32 474 055 052</a>.</p>"
-        . "<p>Talk soon,<br>Elisa</p>";
+        . "<p>Talk to you soon,<br>Elisa</p>";
     $confirm->AltBody = "Hi {$name},\n\n"
         . "Your {$typeLabel} is booked for {$dayLabel} at {$timeLabel} (Brussels time).\n\n"
         . ($meetLink !== '' ? "Google Meet link: {$meetLink}\n\n" : '')
         . "You'll also get a calendar invite from Google. Accept it and you're set.\n\n"
         . $rateNoteText
         . "Need to move it? Reply to this email or call +32 474 055 052.\n\n"
-        . "Talk soon,\nElisa";
+        . "Talk to you soon,\nElisa";
     $confirm->send();
 } catch (PHPMailerException $e) {
     error_log('VDV booking confirmation email failed: ' . $e->getMessage());
